@@ -36,6 +36,8 @@ function openComputerGame() {
     let board = ["", "", "", "", "", "", "", "", ""];
     let tileValue = 1;
     let isGameActive = true;
+    console.log(tiles);
+   
 
 
     /*
@@ -70,24 +72,29 @@ function openComputerGame() {
     }
 
     function userAction(tile, index) {
-        if (isValidAction(tile) && isGameActive) {
+        if (isValidAction(tile) && isGameActive){
             tile.innerText = tileValue;
             /*piece missing from this function re adding classes to player*/
             updateBoard(index);
             tileValue=tileValue+1;
             computerAction();
+            tileValue=tileValue+1;
             
         }
     }
-/*my attempt at getting available tiles
-    function computerAction(tile, index){
-        for(i=0; i<=tiles.length; i++){
-            if (i.innerText!==""){
-                tiles.splice(i,1);
-            }
-        console.log(tiles);    
-        }
-    }*/
+
+    function computerAction(){
+        let availableMoves=[];
+
+        tiles.forEach(function (tile){
+            if(tile.textContent==''){
+                availableMoves.push(tile);
+            }    
+        });
+        
+        let randomMove= Math.floor(Math.random()*availableMoves.length);
+        availableMoves[randomMove].textContent=tileValue;
+    }
 
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => userAction(tile, index));
