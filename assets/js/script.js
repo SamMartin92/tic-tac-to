@@ -71,14 +71,13 @@ function openComputerGame() {
         board[index] = tileValue;
     }
 
+
     function userAction(tile, index) {
         if (isValidAction(tile) && isGameActive){
-            tile.innerText = tileValue;
             /*piece missing from this function re adding classes to player*/
+            tile.innerText=tileValue++;  
             updateBoard(index);
-            tileValue=tileValue+1;
-            computerAction();
-            tileValue=tileValue+1;
+            setTimeout(computerAction, 500); 
             
         }
     }
@@ -93,8 +92,10 @@ function openComputerGame() {
         });
         
         let randomMove= Math.floor(Math.random()*availableMoves.length);
-        availableMoves[randomMove].textContent=tileValue;
-    }
+        availableMoves[randomMove].innerText=tileValue++;
+        
+    }/*https://codepen.io/lando464/pen/BPGEKO*/
+
 
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => userAction(tile, index));
