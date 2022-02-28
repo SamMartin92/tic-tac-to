@@ -22,3 +22,11 @@ bug:
   this is putting the tileValue in a random number of tiles rather than a random tile
   <img href='assets/images/testing_and_bugs/multiple-tiles-1.png'>
    <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>
+
+
+   a bug:
+   userAction can be called twice before computerAction timeout is over:
+   could maybe put a faceade over board
+
+
+   acknowledge Ed in tutor support
