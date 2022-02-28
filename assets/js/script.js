@@ -26,7 +26,7 @@ function openComputerGame() {
     instructions.classList.add('container');
     scoreAndReset.innerHTML = `<div><span id=announcer></span></div>
     <div id='scores'>
-    Player <span id='player'>0</span> Computer <span id='computer'>0</span>
+    Player <span id='player'></span> Computer <span id='computer'></span>
     </div>
     <button class='button' id='reset'>Reset</button>`;
     scoreAndReset.classList.add('below-container');
@@ -42,15 +42,12 @@ function openComputerGame() {
     let isGameActive = true;
     let playerWinner = false;
     let computerWinner= false;
-    let player= document.getElementById('player').innerHTML;
-    let computer= document.getElementById('computer').innerHTML;
-
-
-
-
-
-   
-   
+    let player= document.getElementById('player');
+    let computer= document.getElementById('computer');
+    let playerScore=parseInt(player.innerHTML);
+    let computerScore=parseInt(computer.innerHTML);
+    player.innerHTML=0;
+    computer.innerHTML=0;  
 
 
     /*
@@ -90,6 +87,7 @@ function openComputerGame() {
 
         if(playerWinner){
             announcer.innerHTML=`Player Wins`;
+            player.innerHTML=playerScore+=1;;
             }
 
         
@@ -117,6 +115,7 @@ function openComputerGame() {
 
         if(computerWinner){
             announcer.innerHTML=`Computer Wins`;
+            computer.innerHTML=computerScore+=1;;
             }
 
 
@@ -184,7 +183,8 @@ function openComputerGame() {
     });
 
     function updateScore(){
-        
+
+
     }
 
     function resetBoard() {
