@@ -23,6 +23,10 @@ body{
     border-radius: 5px;
 }
 
+#target-value{
+    background-color: #ffecb8;
+}
+
 #instructions{
     display: flex;
     border: 1px solid black;
