@@ -34,20 +34,22 @@ function openComputerGame() {
 
 
     let tiles = Array.from(document.getElementsByClassName('tile'));
-    let reset= document.getElementById('reset');
-    let announcer= document.getElementById('announcer');
+    let reset = document.getElementById('reset');
+    let announcer = document.getElementById('announcer');
+    let target= document.getElementById('target-value');
     let board = ['', '', '', '', '', '', '', '', ''];
-    let availableMoves=[];
+    let availableMoves = [];
     let tileValue = 1;
     let isGameActive = true;
     let playerWinner = false;
-    let computerWinner= false;
-    let player= document.getElementById('player');
-    let computer= document.getElementById('computer');
-    let playerScore=parseInt(player.innerHTML);
-    let computerScore=parseInt(computer.innerHTML);
-    player.innerHTML=0;
-    computer.innerHTML=0;  
+    let computerWinner = false;
+    let player = document.getElementById('player');
+    let computer = document.getElementById('computer');
+    player.innerHTML = 0;
+    computer.innerHTML = 0;
+    let playerScore = parseInt(player.innerHTML);
+    let computerScore = parseInt(computer.innerHTML);
+    target.innerHTML = generateRandomInteger(12, 20);
 
 
     /*
@@ -68,63 +70,65 @@ function openComputerGame() {
         [2, 4, 6]
     ];
 
-    function checkPlayerWinner() {        
+    function checkPlayerWinner() {
         for (let i = 0; i <= 7; i++) {
             const winCondition = winningConditions[i];
             const a = board[winCondition[0]];
             const b = board[winCondition[1]];
             const c = board[winCondition[2]];
-            if (a === '' || b === '' || c === '') { 
+            if (a === '' || b === '' || c === '') {
 
                 continue;
-               
+
             }
-            if (a+b+c===15){
-                playerWinner = true;             
+            if (a + b + c === parseInt(target.innerHTML)) {
+                playerWinner = true;
                 break;
             }
         }
 
-        if(playerWinner){
-            announcer.innerHTML=`Player Wins`;
-            player.innerHTML=playerScore+=1;;
-            }
+        if (playerWinner) {
+            announcer.innerHTML = `Player Wins`;
+            player.innerHTML = playerScore += 1;;
+            isGameActive = false;
+        }
 
-        
-        if(!board.includes('')){
-            announcer.innerHTML=`TIE GAME! HIT RESET!`
+
+        if (!board.includes('') && !playerWinner && !computerWinner) {
+            announcer.innerHTML = `TIE GAME! HIT RESET!`
         }
     }
 
-    function checkComputerWinner() {        
+    function checkComputerWinner() {
         for (let i = 0; i <= 7; i++) {
             const winCondition = winningConditions[i];
             const a = board[winCondition[0]];
             const b = board[winCondition[1]];
             const c = board[winCondition[2]];
-            if (a === '' || b === '' || c === '') { 
+            if (a === '' || b === '' || c === '') {
 
                 continue;
-               
+
             }
-            if (a+b+c===15){
-                computerWinner = true;       
+            if (a + b + c === parseInt(target.innerHTML)) {
+                computerWinner = true;
                 break;
             }
         }
 
-        if(computerWinner){
-            announcer.innerHTML=`Computer Wins`;
-            computer.innerHTML=computerScore+=1;;
-            }
+        if (computerWinner) {
+            announcer.innerHTML = `Computer Wins`;
+            computer.innerHTML = computerScore += 1;
+            isGameActive = false;
+        }
 
 
-    
+
     }
 
     function isValidAction(tile) {
         if (tile.innerText !== '') {
-            return false;  
+            return false;
         }
         return true;
     };
@@ -136,56 +140,56 @@ function openComputerGame() {
 
 
     function userAction(tile, index) {
-        if (isValidAction(tile) && isGameActive){
+        if (isValidAction(tile) && isGameActive) {
             /*piece missing from this function re adding classes to player*/
-            tile.innerText=tileValue; 
-            tileValue++;  
-            updateBoard(index);           
+            tile.innerText = tileValue;
+            tileValue++;
+            updateBoard(index);
             checkPlayerWinner();
-            if(tileValue!==10 && !playerWinner){
-                setTimeout(computerAction, 500);         
-                        }
+            if (tileValue !== 10 && !playerWinner) {
+                setTimeout(computerAction, 500);
+            }
         }
     }
-//gets available moves for computer
-    function getAvailableMoves(){
+    //gets available moves for computer
+    function getAvailableMoves() {
 
-       tiles.forEach(function (tile){           
-            if(tile.innerText==''){
+        tiles.forEach(function (tile) {
+            if (tile.innerText == '') {
                 availableMoves.push(tile);
-            }   
+            }
             return availableMoves;
-        });      
-    }/*https://codepen.io/lando464/pen/BPGEKO*/
+        });
+    } /*https://codepen.io/lando464/pen/BPGEKO*/
 
-//resets array of available moves
-    function emptyAvailableMoves(){
+    //resets array of available moves
+    function emptyAvailableMoves() {
         availableMoves.splice(0, availableMoves.length);
         return availableMoves;
     }
 
-//computer takes a random move    
-    function computerAction(){
+    //computer takes a random move    
+    function computerAction() {
         getAvailableMoves();
-        let randomMove= Math.floor(Math.random()*availableMoves.length);
-       /* availableMoves[randomMove].innerText=tileValue++;
-        emptyAvailableMoves();*/
+        let randomMove = Math.floor(Math.random() * availableMoves.length);
+        /* availableMoves[randomMove].innerText=tileValue++;
+         emptyAvailableMoves();*/
         let newTile = availableMoves[randomMove];
-        newTile.innerText=tileValue++;
+        newTile.innerText = tileValue++;
         updateBoard(tiles.indexOf(newTile));
         checkComputerWinner();
         emptyAvailableMoves();
     }
 
+    //https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+    //generates random number
+    function generateRandomInteger(min, max) {
+        return Math.floor(min + Math.random() * (max + 1 - min))
+    }
 
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => userAction(tile, index));
     });
-
-    function updateScore(){
-
-
-    }
 
     function resetBoard() {
         board = ['', '', '', '', '', '', '', '', ''];
@@ -194,13 +198,13 @@ function openComputerGame() {
         tiles.forEach(function (tile) {
             tile.innerText = '';
         })
-        tileValue=1;
-        playerWinner=false;
-        computerWinner=false;
-        announcer.innerHTML=``;
+        tileValue = 1;
+        playerWinner = false;
+        computerWinner = false;
+        announcer.innerHTML = ``;
+        target.innerHTML=generateRandomInteger(12,20);
     }
     reset.addEventListener('click', resetBoard);
 
 
 }
-    

@@ -21,7 +21,7 @@ bug:
 
   this is putting the tileValue in a random number of tiles rather than a random tile
   <img href='assets/images/testing_and_bugs/multiple-tiles-1.png'>
-   <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>
+   <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>generateRandomInteger(min, max)
 
 
    a bug:
