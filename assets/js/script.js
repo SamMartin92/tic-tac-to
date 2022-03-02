@@ -35,7 +35,8 @@ function openGameChoice() {
         instructions.innerHTML = containerHTML;
         instructions.removeAttribute('id');
         instructions.classList.add('container');
-        scoreAndReset.innerHTML = `<div><span id=announcer></span></div>
+        scoreAndReset.innerHTML = `<div>
+        <div id='which-player'></div><span id=announcer></span></div>
     <div id='scores'>
     Player One <span id='player-one'></span> Player Two <span id='player-two'></span>
     </div>
@@ -49,11 +50,12 @@ function openGameChoice() {
         let announcer = document.getElementById('announcer');
         let target = document.getElementById('target-value');
         let board = ['', '', '', '', '', '', '', '', ''];
-        let availableMoves = [];
         let tileValue = 1;
         let isGameActive = true;
         let playerOneWinner = false;
         let playerTwoWinner = false;
+        let whichPlayer= document.getElementById('which-player');
+        whichPlayer.innerHTML=`Player One's Turn`;
         let playerOne = document.getElementById('player-one');
         let playerTwo = document.getElementById('player-two');
         playerOne.innerHTML = 0;
@@ -61,7 +63,7 @@ function openGameChoice() {
         let playerOneScore = parseInt(playerOne.innerHTML);
         let playerTwoScore = parseInt(playerTwo.innerHTML);
         target.innerHTML = generateRandomInteger(12, 20);
-
+        let playerOneTurn= true
 
         /*
         Indexes within the board
@@ -81,7 +83,7 @@ function openGameChoice() {
             [2, 4, 6]
         ];
 
-        function checkPlayerOneWinner() {
+        function checkForWinner(){
             for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i];
                 const a = board[winCondition[0]];
@@ -93,14 +95,20 @@ function openGameChoice() {
 
                 }
                 if (a + b + c === parseInt(target.innerHTML)) {
-                    playerOneWinner = true;
+                    playerOneTurn=true ? playerTwoWinner=true : playerOneWinner=true;
                     break;
                 }
             }
 
             if (playerOneWinner) {
                 announcer.innerHTML = `Player One Wins`;
-                player.innerHTML = playerOneScore += 1;;
+                playerOne.innerHTML = playerOneScore += 1;;
+                isGameActive = false;
+            }
+
+            if(playerTwoWinner){
+                announcer.innerHTML = `Player Two Wins`;
+                playerTwo.innerHTML = playerTwoScore += 1;;
                 isGameActive = false;
             }
 
@@ -108,34 +116,19 @@ function openGameChoice() {
             if (!board.includes('') && !playerOneWinner && !playerTwoWinner) {
                 announcer.innerHTML = `TIE GAME! HIT RESET!`
             }
-        }
-
-        function checkComputerWinner() {
-            for (let i = 0; i <= 7; i++) {
-                const winCondition = winningConditions[i];
-                const a = board[winCondition[0]];
-                const b = board[winCondition[1]];
-                const c = board[winCondition[2]];
-                if (a === '' || b === '' || c === '') {
-
-                    continue;
-
-                }
-                if (a + b + c === parseInt(target.innerHTML)) {
-                    computerWinner = true;
-                    break;
-                }
-            }
-
-            if (playerTwoWinner) {
-                announcer.innerHTML = `Player Two Wins`;
-                computer.innerHTML = playerTwoScore += 1;
-                isGameActive = false;
-            }
-
-
 
         }
+
+        function changePlayer(){ 
+            if(playerOneTurn){
+                playerOneTurn=false;
+                whichPlayer.innerHTML=`Player Two's turn`;
+            }else{
+                playerOneTurn=true;
+                whichPlayer.innerHTML=`Player One's Turn`;
+            }
+        }
+
 
         function isValidAction(tile) {
             if (tile.innerText !== '') {
@@ -156,7 +149,8 @@ function openGameChoice() {
                 tile.innerText = tileValue;
                 tileValue++;
                 updateBoard(index);
-                checkPlayerWinner();
+                checkForWinner();
+                changePlayer();
             }
         }
 
