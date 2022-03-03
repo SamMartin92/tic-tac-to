@@ -1,6 +1,9 @@
 const start = document.getElementById('start-button');
 const instructions = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
+const numbers= document.getElementsByTagName('div')[0];
+const modal=document.getElementById('modal-container');
+const modalReset=document.getElementById('reset-modal');
 
 start.addEventListener('click', openGameChoice);
 
@@ -9,7 +12,7 @@ function openGameChoice() {
                   <div class='game-choice'>
                   <button class='button' id='vs-computer'>Vs Computer</button>
                   <button class='button' id='vs-player'>Two Player</button>
-                  </div>  `
+                  </div>  `;
     instructions.innerHTML = gameChoiceHTML;
 
 
@@ -19,8 +22,11 @@ function openGameChoice() {
     let vsPlayer = document.getElementById('vs-player');
     vsPlayer.addEventListener('click', openPlayerGame);
 
+    let tileValue;
+    let board = ['', '', '', '', '', '', '', '', ''];   
     //initiates game vs player
     function openPlayerGame() {
+        
         let containerHTML = `   
                     <div class="tile hover"></div>
                     <div class="tile hover"></div>
@@ -34,9 +40,9 @@ function openGameChoice() {
         let scoreAndReset = document.createElement('div');
         instructions.innerHTML = containerHTML;
         instructions.removeAttribute('id');
-        instructions.classList.add('container');
-        scoreAndReset.innerHTML = `<div>
-        <div id='which-player'></div><span id=announcer></span></div>
+        instructions.classList.add('container');//removed <span id=announcer></span> from line 44
+        scoreAndReset.innerHTML = `<div> 
+        <div id='which-player'></div></div>
     <div id='scores'>
     Player One <span id='player-one'></span> Player Two <span id='player-two'></span>
     </div>
@@ -46,10 +52,11 @@ function openGameChoice() {
 
 
         let tiles = Array.from(document.getElementsByClassName('tile'));
+        let tileValues=[1,2,3,4,5,6,7,8,9];
+        numbers.innerHTML=tileValues.toString().replaceAll(',',' ');
         let reset = document.getElementById('reset');
         let announcer = document.getElementById('announcer');
         let target = document.getElementById('target-value');
-        let board = ['', '', '', '', '', '', '', '', ''];
         let tileValue = 1;
         let isGameActive = true;
         let playerOneWinner = false;
@@ -63,7 +70,8 @@ function openGameChoice() {
         let playerOneScore = parseInt(playerOne.innerHTML);
         let playerTwoScore = parseInt(playerTwo.innerHTML);
         target.innerHTML = generateRandomInteger(12, 20);
-        let playerOneTurn= true
+        let playerOneTurn= true;
+        let value;
 
         /*
         Indexes within the board
@@ -83,6 +91,7 @@ function openGameChoice() {
             [2, 4, 6]
         ];
 
+
         function checkForWinner(){
             for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i];
@@ -101,19 +110,22 @@ function openGameChoice() {
             }
 
             if (playerOneWinner) {
+                modal.classList.remove('hide');
                 announcer.innerHTML = `Player One Wins`;
-                playerOne.innerHTML = playerOneScore += 1;;
+                playerOne.innerHTML = playerOneScore += 1;
                 isGameActive = false;
             }
 
             if(playerTwoWinner){
+                modal.classList.remove('hide');
                 announcer.innerHTML = `Player Two Wins`;
-                playerTwo.innerHTML = playerTwoScore += 1;;
+                playerTwo.innerHTML = playerTwoScore += 1;
                 isGameActive = false;
             }
 
 
             if (!board.includes('') && !playerOneWinner && !playerTwoWinner) {
+                modal.classList.remove('hide');
                 announcer.innerHTML = `TIE GAME! HIT RESET!`
             }
 
@@ -135,19 +147,17 @@ function openGameChoice() {
                 return false;
             }
             return true;
-        };
+        }
 
         function updateBoard(index) {
             board[index] = parseInt(tiles[index].innerText);
         }
 
-
-
         function userAction(tile, index) {
             if (isValidAction(tile) && isGameActive) {
                 //piece missing from this function re adding classes to player
                 tile.innerText = tileValue;
-                tileValue++;
+               tileValue++;
                 updateBoard(index);
                 checkForWinner();
                 changePlayer();
@@ -161,6 +171,16 @@ function openGameChoice() {
             return Math.floor(min + Math.random() * (max + 1 - min))
         }
 
+        //sets target value for round, if same number is chosen twice, a new target value is generated
+        function setTargetValue(){
+            value= generateRandomInteger(12, 20);
+            if (value==target.innerHTML){
+                target.innerHTML = generateRandomInteger(12, 20);
+            } else{
+                target.innerHTML= value;
+            }
+        }
+
         tiles.forEach(function (tile, index) {
             tile.addEventListener('click', () => userAction(tile, index));
         });
@@ -171,20 +191,24 @@ function openGameChoice() {
 
             tiles.forEach(function (tile) {
                 tile.innerText = '';
-            })
+            });
             tileValue = 1;
             playerOneWinner = false;
             playerTwoWinner = false;
             announcer.innerHTML = ``;
-            target.innerHTML = generateRandomInteger(12, 20);
+            modal.classList.add('hide');
+            //target.innerHTML = generateRandomInteger(12, 20);
+            setTargetValue();
         }
         reset.addEventListener('click', resetBoard);
+        modalReset.addEventListener('click', resetBoard);
 
 
     }
 
 //initiates game vs computer
     function openComputerGame() {
+
         let containerHTML = `   
                     <div class="tile hover"></div>
                     <div class="tile hover"></div>
@@ -198,13 +222,13 @@ function openGameChoice() {
         let scoreAndReset = document.createElement('div');
         instructions.innerHTML = containerHTML;
         instructions.removeAttribute('id');
-        instructions.classList.add('container');
-        scoreAndReset.innerHTML = `<div><span id=announcer></span></div>
+        instructions.classList.add('container');//removed <span></span> id=announcer from below span
+        scoreAndReset.innerHTML = `<div></div>
     <div id='scores'>
     Player <span id='player'></span> Computer <span id='computer'></span>
     </div>
     <button class='button' id='reset'>Reset</button>`;
-        scoreAndReset.classList.add('below-container');
+        scoreAndReset.classList.add('below-container');//changed reset to class above
         game.appendChild(scoreAndReset);
 
 
@@ -263,14 +287,16 @@ function openGameChoice() {
             }
 
             if (playerWinner) {
+                modal.classList.remove('hide');
                 announcer.innerHTML = `Player Wins`;
-                player.innerHTML = playerScore += 1;;
+                player.innerHTML = playerScore += 1;
                 isGameActive = false;
             }
 
 
             if (!board.includes('') && !playerWinner && !computerWinner) {
-                announcer.innerHTML = `TIE GAME! HIT RESET!`
+                modal.classList.remove('hide');
+                announcer.innerHTML = `TIE GAME! HIT RESET!`;
             }
         }
 
@@ -292,6 +318,7 @@ function openGameChoice() {
             }
 
             if (computerWinner) {
+                modal.classList.remove('hide');
                 announcer.innerHTML = `Computer Wins`;
                 computer.innerHTML = computerScore += 1;
                 isGameActive = false;
@@ -306,7 +333,7 @@ function openGameChoice() {
                 return false;
             }
             return true;
-        };
+        }
 
         function updateBoard(index) {
             board[index] = parseInt(tiles[index].innerText);
@@ -357,7 +384,7 @@ function openGameChoice() {
         //https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
         //generates random number
         function generateRandomInteger(min, max) {
-            return Math.floor(min + Math.random() * (max + 1 - min))
+            return Math.floor(min + Math.random() * (max + 1 - min));
         }
 
         tiles.forEach(function (tile, index) {
@@ -375,9 +402,11 @@ function openGameChoice() {
             playerWinner = false;
             computerWinner = false;
             announcer.innerHTML = ``;
+            modal.classList.add('hide');
             target.innerHTML = generateRandomInteger(12, 20);
         }
         reset.addEventListener('click', resetBoard);
+        modalReset.addEventListener('click', resetBoard);
 
 
     }

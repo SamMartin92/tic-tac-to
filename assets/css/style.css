@@ -15,7 +15,7 @@ body{
 #heading{
     text-align: center;
     padding:5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: 	#b7ded2;
     font-size: 40px;
     width: 300px;
@@ -35,10 +35,10 @@ body{
     align-items: center;
     margin: 0 auto;
 }
-
+/*
 .hide{
-    display: none;
-}
+    display: none !important;
+}*/
 
 .button{
     cursor: pointer;
@@ -48,6 +48,35 @@ body{
     font-size: 20px;
     background-color: #ffecb8;
     color: 	#b7ded2;
+}
+
+#modal-container{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    display: flex;
+    width: 75%;
+    height: 35%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #ffc5d9;
+    border-radius: 5px;
+    box-shadow: 2px 2px #e5b1c3;
+}
+
+#announcer{
+    padding-top: 40%;
 }
 
 .container{

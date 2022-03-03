@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,35 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/script.js" defer></script>
 </head>
+
 <body>
-    
+
     <h1 id="heading">Tic Tac To <span id='target-value'></span></h1>
+    <div></div>
 
     <section>
         <div id="instructions">
-        <h2>How to play:</h2>
-        <ul>
-            <li>Play vs another player or the computer</li>
-            <li>The goal of the game is to make a the contents of a full row, column or diagonal add to 15</li>
-            <li>The first player selects a square to add the number 1. The next player selects another to add the number 2.</li>
-            <li>The first player then adds 3 to a square.</li>
-            <li>The game continues in this pattern until three numbers in a row, column or diagonal sum up to 15.</li>
-            <li>The winner is the first player to complete this goal. </li>
-            <li>If all squares are filled with no combinations adding up to 15, a tie is declared.</li>
-        </ul>
-        <button class="button" id="start-button">Start</button>
-    </div>
+            <h2>How to play:</h2>
+            <ul>
+                <li>Play vs another player or the computer</li>
+                <li>The goal of the game is to make a the contents of a full row, column or diagonal add to 15</li>
+                <li>The first player selects a square to add the number 1. The next player selects another to add the
+                    number 2.</li>
+                <li>The first player then adds 3 to a square.</li>
+                <li>The game continues in this pattern until three numbers in a row, column or diagonal sum up to 15.
+                </li>
+                <li>The winner is the first player to complete this goal. </li>
+                <li>If all squares are filled with no combinations adding up to 15, a tie is declared.</li>
+            </ul>
+            <button class="button" id="start-button">Start</button>
+        </div>
     </section>
+
+    <div class="hide" id="modal-container">
+        <div class="modal"><span id="announcer">Player One Wins</span>
+            <button class="button" id="reset-modal">Reset</button>
+        </div>
+    </div>
 </body>
 
 </html>
