@@ -1,10 +1,28 @@
 const start = document.getElementById('start-button');
 const instructions = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
-const numbers= document.getElementsByTagName('div')[0];
-const modal=document.getElementById('modal-container');
-const modalReset=document.getElementById('reset-modal');
+const numbers = document.getElementsByTagName('div')[0];
+const modal = document.getElementById('modal-container');
+const modalReset = document.getElementById('reset-modal');
+const happyImages = ['assets/images/score-images/happy-1.png', 'assets/images/score-images/happy-2.png',
+    'assets/images/score-images/happy-3.png', 'assets/images/score-images/happy-4.png'
+];
+const sadImages = ['assets/images/score-images/sad-1.png', 'assets/images/score-images/sad-2.png',
+    'assets/images/score-images/sad-3.png', 'assets/images/score-images/sad-4.png'
+];
 
+//https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+//generates random number
+function generateRandomInteger(min, max) {
+    return Math.floor(min + Math.random() * (max + 1 - min))
+}
+
+function generateHappyImage() {
+    let image = generateRandomInteger(0, 3);
+    let imageDiv= document.createElement('div');
+    imageDiv.innerHTML =`<img alt='A happy dog' src='${happyImages[image]}'>`;
+    modal.appendChild(imageDiv);
+}
 start.addEventListener('click', openGameChoice);
 
 function openGameChoice() {
@@ -23,10 +41,10 @@ function openGameChoice() {
     vsPlayer.addEventListener('click', openPlayerGame);
 
     let tileValue;
-    let board = ['', '', '', '', '', '', '', '', ''];   
+    let board = ['', '', '', '', '', '', '', '', ''];
     //initiates game vs player
     function openPlayerGame() {
-        
+
         let containerHTML = `   
                     <div class="tile hover"></div>
                     <div class="tile hover"></div>
@@ -40,7 +58,7 @@ function openGameChoice() {
         let scoreAndReset = document.createElement('div');
         instructions.innerHTML = containerHTML;
         instructions.removeAttribute('id');
-        instructions.classList.add('container');//removed <span id=announcer></span> from line 44
+        instructions.classList.add('container'); //removed <span id=announcer></span> from line 44
         scoreAndReset.innerHTML = `<div> 
         <div id='which-player'></div></div>
     <div id='scores'>
@@ -52,8 +70,8 @@ function openGameChoice() {
 
 
         let tiles = Array.from(document.getElementsByClassName('tile'));
-        let tileValues=[1,2,3,4,5,6,7,8,9];
-        numbers.innerHTML=tileValues.toString().replaceAll(',',' ');
+        let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        numbers.innerHTML = tileValues.toString().replaceAll(',', ' ');
         let reset = document.getElementById('reset');
         let announcer = document.getElementById('announcer');
         let target = document.getElementById('target-value');
@@ -61,8 +79,8 @@ function openGameChoice() {
         let isGameActive = true;
         let playerOneWinner = false;
         let playerTwoWinner = false;
-        let whichPlayer= document.getElementById('which-player');
-        whichPlayer.innerHTML=`Player One's Turn`;
+        let whichPlayer = document.getElementById('which-player');
+        whichPlayer.innerHTML = `Player One's Turn`;
         let playerOne = document.getElementById('player-one');
         let playerTwo = document.getElementById('player-two');
         playerOne.innerHTML = 0;
@@ -70,7 +88,7 @@ function openGameChoice() {
         let playerOneScore = parseInt(playerOne.innerHTML);
         let playerTwoScore = parseInt(playerTwo.innerHTML);
         target.innerHTML = generateRandomInteger(12, 20);
-        let playerOneTurn= true;
+        let playerOneTurn = true;
         let value;
 
         /*
@@ -92,7 +110,7 @@ function openGameChoice() {
         ];
 
 
-        function checkForWinner(){
+        function checkForWinner() {
             for (let i = 0; i <= 7; i++) {
                 const winCondition = winningConditions[i];
                 const a = board[winCondition[0]];
@@ -104,7 +122,7 @@ function openGameChoice() {
 
                 }
                 if (a + b + c === parseInt(target.innerHTML)) {
-                    playerOneTurn=true ? playerTwoWinner=true : playerOneWinner=true;
+                    playerOneTurn = true ? playerTwoWinner = true : playerOneWinner = true;
                     break;
                 }
             }
@@ -112,13 +130,15 @@ function openGameChoice() {
             if (playerOneWinner) {
                 modal.classList.remove('hide');
                 announcer.innerHTML = `Player One Wins`;
+                generateHappyImage();
                 playerOne.innerHTML = playerOneScore += 1;
                 isGameActive = false;
             }
 
-            if(playerTwoWinner){
+            if (playerTwoWinner) {
                 modal.classList.remove('hide');
                 announcer.innerHTML = `Player Two Wins`;
+                generateHappyImage();
                 playerTwo.innerHTML = playerTwoScore += 1;
                 isGameActive = false;
             }
@@ -131,13 +151,13 @@ function openGameChoice() {
 
         }
 
-        function changePlayer(){ 
-            if(playerOneTurn){
-                playerOneTurn=false;
-                whichPlayer.innerHTML=`Player Two's turn`;
-            }else{
-                playerOneTurn=true;
-                whichPlayer.innerHTML=`Player One's Turn`;
+        function changePlayer() {
+            if (playerOneTurn) {
+                playerOneTurn = false;
+                whichPlayer.innerHTML = `Player Two's turn`;
+            } else {
+                playerOneTurn = true;
+                whichPlayer.innerHTML = `Player One's Turn`;
             }
         }
 
@@ -157,7 +177,7 @@ function openGameChoice() {
             if (isValidAction(tile) && isGameActive) {
                 //piece missing from this function re adding classes to player
                 tile.innerText = tileValue;
-               tileValue++;
+                tileValue++;
                 updateBoard(index);
                 checkForWinner();
                 changePlayer();
@@ -172,12 +192,12 @@ function openGameChoice() {
         }
 
         //sets target value for round, if same number is chosen twice, a new target value is generated
-        function setTargetValue(){
-            value= generateRandomInteger(12, 20);
-            if (value==target.innerHTML){
+        function setTargetValue() {
+            value = generateRandomInteger(12, 20);
+            if (value == target.innerHTML) {
                 target.innerHTML = generateRandomInteger(12, 20);
-            } else{
-                target.innerHTML= value;
+            } else {
+                target.innerHTML = value;
             }
         }
 
@@ -197,6 +217,7 @@ function openGameChoice() {
             playerTwoWinner = false;
             announcer.innerHTML = ``;
             modal.classList.add('hide');
+            modal.appendChild(imageDiv);
             //target.innerHTML = generateRandomInteger(12, 20);
             setTargetValue();
         }
@@ -206,7 +227,7 @@ function openGameChoice() {
 
     }
 
-//initiates game vs computer
+    //initiates game vs computer
     function openComputerGame() {
 
         let containerHTML = `   
@@ -222,13 +243,13 @@ function openGameChoice() {
         let scoreAndReset = document.createElement('div');
         instructions.innerHTML = containerHTML;
         instructions.removeAttribute('id');
-        instructions.classList.add('container');//removed <span></span> id=announcer from below span
+        instructions.classList.add('container'); //removed <span></span> id=announcer from below span
         scoreAndReset.innerHTML = `<div></div>
     <div id='scores'>
     Player <span id='player'></span> Computer <span id='computer'></span>
     </div>
     <button class='button' id='reset'>Reset</button>`;
-        scoreAndReset.classList.add('below-container');//changed reset to class above
+        scoreAndReset.classList.add('below-container'); //changed reset to class above
         game.appendChild(scoreAndReset);
 
 

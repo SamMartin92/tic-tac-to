@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Sansita:ital@1&display=swap');
+
 *{
     padding:1px 0 0 0;
     margin:0;
     background-color: #ffc5d9;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 body{
@@ -21,6 +24,7 @@ body{
     width: 300px;
     background-color: #ffecb8;
     border-radius: 5px;
+    font-family: 'Bubblegum Sans', 'Sansita' cursive;
 }
 
 #target-value{
@@ -35,10 +39,10 @@ body{
     align-items: center;
     margin: 0 auto;
 }
-/*
+
 .hide{
     display: none !important;
-}*/
+}
 
 .button{
     cursor: pointer;
@@ -64,8 +68,6 @@ body{
 
 .modal{
     display: flex;
-    width: 75%;
-    height: 35%;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -76,7 +78,7 @@ body{
 }
 
 #announcer{
-    padding-top: 40%;
+    padding:40px;
 }
 
 .container{
@@ -96,6 +98,8 @@ body{
     align-items: center;
     font-size: 50px;
     color:	#adcbe3;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffecb8;
     cursor: pointer;
     caret-color: transparent;
 }
