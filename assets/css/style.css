@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Sansita:ital@1&display=swap');
 
 *{
-    padding:1px 0 0 0;
+  /*  padding:1px 0 0 0;*/
     margin:0;
     background-color: #ffc5d9;
     font-family: 'Bubblegum Sans', cursive;
 }
 
 body{
+    padding: 1px 0 0 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,6 +30,7 @@ body{
 
 #target-value{
     background-color: #ffecb8;
+    font-size: 45px;
 }
 
 #instructions{
@@ -78,7 +80,11 @@ body{
 }
 
 #announcer{
-    padding:40px;
+    padding:20px 40px;
+}
+
+#image-holder{
+    padding:5px 5px 15px 5px;
 }
 
 .container{

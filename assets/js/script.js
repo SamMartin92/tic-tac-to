@@ -3,6 +3,7 @@ const instructions = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
 const numbers = document.getElementsByTagName('div')[0];
 const modal = document.getElementById('modal-container');
+const imageSpace= document.getElementById('image-holder');
 const modalReset = document.getElementById('reset-modal');
 const happyImages = ['assets/images/score-images/happy-1.png', 'assets/images/score-images/happy-2.png',
     'assets/images/score-images/happy-3.png', 'assets/images/score-images/happy-4.png'
@@ -21,8 +22,15 @@ function generateHappyImage() {
     let image = generateRandomInteger(0, 3);
     let imageDiv= document.createElement('div');
     imageDiv.innerHTML =`<img alt='A happy dog' src='${happyImages[image]}'>`;
-    modal.appendChild(imageDiv);
+    imageSpace.appendChild(imageDiv);
 }
+function generateSadImage() {
+    let image = generateRandomInteger(0, 3);
+    let imageDiv= document.createElement('div');
+    imageDiv.innerHTML =`<img alt='A happy dog' src='${sadImages[image]}'>`;
+    imageSpace.appendChild(imageDiv);
+}
+
 start.addEventListener('click', openGameChoice);
 
 function openGameChoice() {
@@ -32,7 +40,6 @@ function openGameChoice() {
                   <button class='button' id='vs-player'>Two Player</button>
                   </div>  `;
     instructions.innerHTML = gameChoiceHTML;
-
 
     let vsComputer = document.getElementById('vs-computer');
     vsComputer.addEventListener('click', openComputerGame);
@@ -217,7 +224,7 @@ function openGameChoice() {
             playerTwoWinner = false;
             announcer.innerHTML = ``;
             modal.classList.add('hide');
-            modal.appendChild(imageDiv);
+            modal.removeChild(imageDiv);
             //target.innerHTML = generateRandomInteger(12, 20);
             setTargetValue();
         }
@@ -310,6 +317,7 @@ function openGameChoice() {
             if (playerWinner) {
                 modal.classList.remove('hide');
                 announcer.innerHTML = `Player Wins`;
+                generateHappyImage()
                 player.innerHTML = playerScore += 1;
                 isGameActive = false;
             }
@@ -341,6 +349,7 @@ function openGameChoice() {
             if (computerWinner) {
                 modal.classList.remove('hide');
                 announcer.innerHTML = `Computer Wins`;
+                generateSadImage()
                 computer.innerHTML = computerScore += 1;
                 isGameActive = false;
             }
