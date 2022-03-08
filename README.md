@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=B3pmT7Cpi24&ab_channel=JavaScriptAcademy
 https://www.color-hex.com/color-palette/1007780
 
 
-need to implement the game logic
+
 
 
 bug:
@@ -18,9 +18,6 @@ bug:
     computerMove.innerText=tileValue;
 
   }
-
-  this is putting the tileValue in a random number of tiles rather than a random tile
-  <img href='assets/images/testing_and_bugs/multiple-tiles-1.png'>
    <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>generateRandomInteger(min, max)
 
 
@@ -32,7 +29,13 @@ bug:
    acknowledge Ed in tutor support
 
 
+  this is putting the tileValue in a random number of tiles rather than a random tile
+  <img href='assets/images/testing_and_bugs/multiple-tiles-1.png'>
+    <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>
+
+
    modal https://www.youtube.com/watch?v=XH5OW46yO8I
 
 
    bunnys https://pixabay.com/illustrations/rabbit-easter-pastel-bunny-hare-4120085/ https://www.remove.bg/
+=======
