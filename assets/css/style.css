@@ -19,7 +19,7 @@ body{
     text-align: center;
     padding:5px;
     margin-bottom: 10px;
-    color: 	#b7ded2;
+    color: 	#87b3d6;
     font-size: 40px;
     width: 300px;
     background-color: #ffecb8;
@@ -62,7 +62,7 @@ ul{
     border: none;
     font-size: 20px;
     background-color: #ffecb8;
-    color: 	#b7ded2;
+    color: 	#87b3d6;
 }
 
 button:hover{
@@ -110,14 +110,14 @@ button:hover{
 }
 
 .tile{
-    border: 2px solid 	#adcbe3;
+    border: 2px solid 	#87b3d6;
     min-width: 100px;
     min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    color:	#adcbe3;
+    color:	#87b3d6;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ffecb8;
     cursor: pointer;
