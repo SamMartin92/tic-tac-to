@@ -37,11 +37,10 @@ const winningConditions = [
 //https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 //generates random number
 function generateRandomInteger(min, max) {
-    return Math.floor(min + Math.random() * (max + 1 - min))
+    return Math.floor(min + Math.random() * (max + 1 - min));
 }
 
 function generateTileValue() {
-    console.log(board);
     const randomIndex = Math.floor(Math.random() * tileValues.length);
     tileValue = tileValues[randomIndex];
     if (!board.includes(tileValue)) {
@@ -51,8 +50,6 @@ function generateTileValue() {
     } else {
         generateTileValue();
     }
-    console.log(tileValue);
-    console.log(tileValues);
 }
 
 function generateHappyImage() {
@@ -68,22 +65,7 @@ function generateSadImage() {
     imageDiv.innerHTML = `<img alt='A happy dog' src='${sadImages[randomInteger]}'>`;
     imageSpace.appendChild(imageDiv);
 }
-/*
-function checkIfWon() {
-    for (let i = 0; i < 8; i++) {
-        const winCondition = winningConditions[i];
-        const firstPositionNumber = board[winCondition[0]];
-        const secondPositionNumber = board[winCondition[1]];
-        const thirdPositionNumber = board[winCondition[2]];
-        if (firstPositionNumber === '' || secondPositionNumber === '' || thirdPositionNumber === '') {
-            continue;
-        }
-        if (firstPositionNumber + secondPositionNumber + thirdPositionNumber === parseInt(target.innerHTML)) {
-            return true;
-        }
-    }
-    return false;
-}*/
+
 function isValidAction(tile) {
     if (tile.innerText !== '') {
         return false;
@@ -139,17 +121,17 @@ function openPlayerGame() {
         </div>
         <button class='button' id='reset'>Reset</button>
         <div id='returner'>
-            <button class='button' id='return-button'>Go back <i class="fa-solid fa-arrow-left-long"></i></button>
+            <button class='button' id='return-button'>One Player</button>
         </div>
     <div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
     let tiles = Array.from(document.getElementsByClassName('tile'));
     numbers.innerHTML = tileValues.join(' ');
-    //let tileValue = 1;
     let isGameActive = true;
     let playerOneWinner = false;
     let playerTwoWinner = false;
     let whichPlayer = document.getElementById('which-player');
+    let returnButton = document.getElementById('return-button');
     whichPlayer.innerHTML = `Player One's Turn`;
     let playerOneScoreDiv = document.getElementById('player-one');
     let playerTwoScoreDiv = document.getElementById('player-two');
@@ -160,14 +142,13 @@ function openPlayerGame() {
     let playerTwoScore = parseInt(playerTwoScoreDiv.innerHTML);
     target.innerHTML = generateRandomInteger(12, 20);
     let playerOneTurn = true;
-    let value;
-    let returnButton = document.getElementById('return-button');
+    
     generateTileValue();
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => onTwoPlayerGameTileClick(tile, index));
     });
 
-    function checkForWinner() {
+    function checkForWinner() { 
         for (let i = 0; i <= 7; i++) {
             const winCondition = winningConditions[i];
             const firstPositionNumber = board[winCondition[0]];
@@ -179,7 +160,7 @@ function openPlayerGame() {
 
             }
             if (firstPositionNumber + secondPositionNumber + thirdPositionNumber === parseInt(target.innerHTML) && playerOneTurn) {
-                playerTwoWinner = true
+                playerTwoWinner = true;
             } else {
                 playerOneWinner = true;
             }
@@ -202,7 +183,7 @@ function openPlayerGame() {
         }
         if (!board.includes('') && !playerOneWinner && !playerTwoWinner) {
             modal.classList.remove('hide');
-            announcer.innerHTML = `TIE GAME! HIT RESET!`
+            announcer.innerHTML = `TIE. Click to Reset!`;
             generateSadImage();
         }
     }
@@ -237,7 +218,7 @@ function openPlayerGame() {
             tile.innerText = '';
         });
         // tileValue = 1;
-        numbers.innerHTML = tileValues.join(' ')
+        numbers.innerHTML = tileValues.join(' ');
         playerOneWinner = false;
         playerTwoWinner = false;
         announcer.innerHTML = ``;
@@ -250,7 +231,15 @@ function openPlayerGame() {
         resetBoard();
         imageSpace.removeChild(imageSpace.firstChild);
     }
-    returnButton.addEventListener('click', setGameChoicesHTML);
+
+    function returnToComputerGame(){
+        let belowContainerDiv= document.querySelector('.below-container');
+        belowContainerDiv.remove();
+        tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        openComputerGame();
+    }
+
+    returnButton.addEventListener('click', returnToComputerGame);
     reset.addEventListener('click', resetBoard);
     modalReset.addEventListener('click', resetFromModal);
 }
@@ -266,7 +255,7 @@ function openComputerGame() {
         <button class='button' id='reset'>Reset</button>
         <div id='returner'>
         <button class='button' id='return-button'>
-            Go back<br><i class="fa-solid fa-arrow-left-long"></i>
+           Two Player
         </button>
     </div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
@@ -276,6 +265,7 @@ function openComputerGame() {
     let isGameActive = true;
     let playerWinner = false;
     let computerWinner = false;
+    let returnButton = document.getElementById('return-button');
     let playerScoreDiv = document.getElementById('player');
     let computerScoreDiv = document.getElementById('computer');
     // Init scores to 0
@@ -311,13 +301,13 @@ function openComputerGame() {
             modal.classList.remove('hide');
             announcer.innerHTML = `Player Wins`;
             generateHappyImage();
-            player.innerHTML = playerScore += 1;
+            playerScoreDiv.innerHTML = playerScore += 1;
             isGameActive = false;
         }
         if (!board.includes('') && !playerWinner && !computerWinner) {
             modal.classList.remove('hide');
             generateSadImage();
-            announcer.innerHTML = `TIE GAME! HIT RESET!`;
+            announcer.innerHTML = `Tie! Click to Reset!`;
             isGameActive = false;
         }
     }
@@ -328,7 +318,7 @@ function openComputerGame() {
             modal.classList.remove('hide');
             announcer.innerHTML = `Computer Wins`;
             generateSadImage();
-            computer.innerHTML = computerScore += 1;
+            computerScoreDiv.innerHTML = computerScore += 1;
             isGameActive = false;
         }
     }
@@ -380,7 +370,7 @@ function openComputerGame() {
         isGameActive = true;
         tiles.forEach(function (tile) {
             tile.innerText = '';
-        })
+        });
         numbers.innerHTML = tileValues.join(' ');
         playerWinner = false;
         computerWinner = false;
@@ -394,6 +384,15 @@ function openComputerGame() {
         resetBoard();
         imageSpace.removeChild(imageSpace.firstChild);
     }
+
+    function returnToPlayerGame(){
+        let belowContainerDiv= document.querySelector('.below-container');
+        tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        belowContainerDiv.remove();
+        openPlayerGame();
+    }
+
+    returnButton.addEventListener('click', returnToPlayerGame);
     reset.addEventListener('click', resetBoard);
     modalReset.addEventListener('click', resetFromModal);
 }
