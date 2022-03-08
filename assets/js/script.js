@@ -173,7 +173,7 @@ function openPlayerGame() {
             const firstPositionNumber = board[winCondition[0]];
             const secondPositionNumber = board[winCondition[1]];
             const thirdPositionNumber = board[winCondition[2]];
-            if (a === '' || b === '' || c === '') {
+            if (firstPositionNumber === '' || secondPositionNumber === '' || thirdPositionNumber === '') {
 
                 continue;
 
