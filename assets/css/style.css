@@ -51,10 +51,6 @@ ul{
     font-size: 25px;
 }
 
-.hide{
-    display: none !important;
-}
-
 .button{
     cursor: pointer;
     padding: 10px;
@@ -69,6 +65,11 @@ button:hover{
     background-color: #ffd86c;
     color: #87b3d6;
 }
+
+.hide{
+    display: none !important;
+}
+
 
 #modal-container{
     background-color: rgba(0, 0, 0, 0.5);

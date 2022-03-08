@@ -7,7 +7,7 @@
 * ## Objective
 <p> My objective in this project is to build an interactive front-end site. It should respond to the users' actions, allowing them to enagage with the data and alter the way the site displays the information, allowing them to achieve the goals of the site and experience it in a straight-forward and enjoyable manner.</p>
 
-<p> This encapsulates the brief as laid out Portfolio Project 2 Assessment Guide. This site has been built as my second portfolio project as part of my Diploma in Software Development with the [Code Institute](https://codeinstitute.net/ie/). For my project, I have decided to build a math's based variation on the classic game tic tac toe, hence the title. The game is aimed at children from ages 4-7 who are beginnning to learn and understand addition for the first time.</p>
+<p> This encapsulates the brief as laid out Portfolio Project 2 Assessment Guide. This site has been built as my second portfolio project as part of my Diploma in Software Development with the [Code Institute](https://codeinstitute.net/ie/). For my project, I have decided to build a math's based variation on the classic game tic tac toe, hence the title. The game is aimed at children from ages 5-8 who are beginnning to learn and understand addition for the first time.</p>
 
 <p> The game sets a new target score between 12-20, which is displayed above the tic-tac-toe board and users input a randomly generated number from 1-9 on each turn by clicking a tile on the board. A round is won if three numbers across a row, column or diagonal sum up to the target score for that round. The game can be played with another user or verses 'the computer'.</p>
 * ### Strategy
