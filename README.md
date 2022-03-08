@@ -26,7 +26,7 @@
 
 * ### Font & Color Scheme
 
-* ##Testing:
+* ## Testing:
 
 * ### Bugs
 
