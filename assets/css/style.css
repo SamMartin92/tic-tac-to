@@ -57,10 +57,10 @@ ul{
 
 .button{
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
     border: none;
-    font-size: 20px;
+    font-size: 22px;
     background-color: #ffecb8;
     color: 	#87b3d6;
 }
