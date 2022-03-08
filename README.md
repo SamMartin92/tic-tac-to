@@ -1,6 +1,49 @@
 # Tic Tac To
 
+**Pic with all the screens
+
 [Link to live site] (https://sammartin92.github.io/tic-tac-to/)
+
+* ## Objective
+
+* ### Strategy
+
+* ### Scope
+
+* ### Structure
+
+* ### Skeleton
+
+* ### Surface
+
+* ## User Stories:
+
+* ## Features:
+
+* ### Existing features:
+
+* ### Features to implement:
+
+* ### Font & Color Scheme
+
+* ##Testing:
+
+* ### Bugs
+
+* #### Unfixed bugs
+
+* ### Deployment
+
+* ## Credits
+
+* ### Content
+
+* ### Technologies Used
+
+* ### Media
+
+* ### Acknowledgements
+
 https://www.youtube.com/watch?v=B3pmT7Cpi24&ab_channel=JavaScriptAcademy
 
 https://www.color-hex.com/color-palette/1007780
