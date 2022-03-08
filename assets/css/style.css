@@ -24,7 +24,7 @@ body{
     width: 300px;
     background-color: #ffecb8;
     border-radius: 5px;
-    font-family: 'Bubblegum Sans', 'Sansita' cursive;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 #target-value{
