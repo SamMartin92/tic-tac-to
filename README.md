@@ -1,4 +1,6 @@
+#Tic Tac To
 
+[Link to live site](https://sammartin92.github.io/tic-tac-to/)
 https://www.youtube.com/watch?v=B3pmT7Cpi24&ab_channel=JavaScriptAcademy
 
 https://www.color-hex.com/color-palette/1007780
