@@ -2,7 +2,7 @@
 
 **Pic with all the screens
 
-[Link to live site] (https://sammartin92.github.io/tic-tac-to/)
+[Link to live site.](https://sammartin92.github.io/tic-tac-to/)
 
 * ## Objective
 
