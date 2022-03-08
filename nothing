@@ -73,7 +73,7 @@ function openGameChoice() {
         scoreAndReset.innerHTML = `<div> 
         <div id='which-player'></div></div>
     <div id='scores'>
-    Player One <span id='player-one'></span> Player Two <span id='player-two'></span>
+    Player One <span class= 'score-box' id='player-one'></span> Player Two <span class= 'score-box' id='player-two'></span>
     </div>
     <button class='button' id='reset'>Reset</button>
     <div id='returner'>
@@ -88,7 +88,7 @@ function openGameChoice() {
 
         let tiles = Array.from(document.getElementsByClassName('tile'));
         let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        numbers.innerHTML = tileValues.join(' ');
+        numbers.innerHTML = `Remaining: + ${tileValues.join(' ')}`;
         let reset = document.getElementById('reset');
         let announcer = document.getElementById('announcer');
         let target = document.getElementById('target-value');
@@ -181,15 +181,9 @@ function openGameChoice() {
 
         function userAction(tile, index) {
             if (isValidAction(tile) && isGameActive) {
-                //piece missing from this function re adding classes to player
                 tile.innerText = tileValue;
-                // tileValue++;
                 numbers.innerHTML = tileValues.join(' ');
                 updateBoard(index);
-                
-                
-                console.log(playerOneWinner);
-                console.log(playerTwoWinner);
                 changePlayer();
                  generateTileValue();
                 checkForWinner();
@@ -279,7 +273,7 @@ function openGameChoice() {
         instructions.classList.add('container'); //removed <span></span> id=announcer from below span
         scoreAndReset.innerHTML = `<div></div>
     <div id='scores'>
-    Player <span id='player'></span> Computer <span id='computer'></span>
+    Player <span class= 'score-box' id='player'></span> Computer <span class= 'score-box' id='computer'></span>
     </div>
     <button class='button' id='reset'>Reset</button>
     <div id='returner'>

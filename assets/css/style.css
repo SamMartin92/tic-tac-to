@@ -30,7 +30,13 @@ body{
 #target-value{
     background-color: #ffecb8;
     font-size: 45px;
+    text-decoration: underline;
 }
+
+#numbers{
+    padding:10px;
+    max-width: 300px;
+    }
 
 #instructions{
     display: flex;
@@ -42,6 +48,7 @@ body{
 
 ul{
     margin-bottom: 20px;
+    font-size: 25px;
 }
 
 .hide{
@@ -132,4 +139,9 @@ button:hover{
 }
 #scores{
     padding: 10px;
+}
+
+.score-box{
+    padding:8px;
+    font-size: larger;
 }
