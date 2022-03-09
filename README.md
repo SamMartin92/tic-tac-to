@@ -13,24 +13,24 @@ The game sets a new target score between 12-20, which is displayed above the tic
 
 I have laid out the user experience process below:
 
-* ### Strategy
- - Build a fun mobile first online game for young children, aged roughly 4-8 years old.
- - Make a game with a simple goal which will help educate the young user.
- - Design a visually pleasing site for a young user.
+ ### Strategy
+- Build a fun mobile first online game for young children, aged roughly 4-8 years old.
+- Make a game with a simple goal which will help educate the young user.
+- Design a visually pleasing site for a young user.
 
-* ### Scope
+ ### Scope
 - Build the entire game on a single page site with a landing page explaining the rules for parents/guardians of the user.
 - Build a game with very straight forward rules that will not cause a steep learning curve.
 - Design a site which intuitively allows the user to access the game without any difficulty.
-* ### Structure
+ ### Structure
 - Present the game on one signle page with interactive design built with javascript.
 - Present the user with intuitive and consistent buttons to interact with and navigate through the site with ease.
 - Initiate the game within 2 clicks upon entering the site.
-* ### Skeleton
+ ### Skeleton
 - Single site with different windows which pop up and replace one another on button clicks.
 - Before proceeding with any coding, I made some simple wireframes to act as a guide for the design of the site. The simplicity of the wireframes was something I wanted to reflect in the finished site to keep it single minded and non-distracting for yound users.
 - I then spoke with my mentor and decided how to lay out the site, such as the landing page and game choice sections.
-* ### Surface
+ ### Surface
 - Present a cute design for the site to appeal to child users.
 - Use cute images and playful font throughout the site.
 - Use a soft colour scheme and use a black font for certain non-game elements to contrast against the general theme.
