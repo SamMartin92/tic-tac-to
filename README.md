@@ -47,7 +47,7 @@ I have laid out the user experience process below:
 
  ## Features:
 
-*#### I have left the screenshots of the mobile screens uncropped so that the navigation and notification bars and how they look with the site show on the device unedited.*
+*I have left the screenshots of the mobile screens uncropped so that the navigation and notification bars and how they look with the site show on the device unedited.*
 
  ### Existing features:
 
@@ -144,8 +144,28 @@ I have laid out the user experience process below:
         .
         .
         } 
-#### Unfixed bugs
+ - Another bug related to choosing a random number each round. Originally I used two seperate functions, one function to generate the number and another to check whether that had been used already during that round.
+   - As I was calling the second function in the first, while in theory it should not have caused an infinite loop, at times it would take too long to find a number not already used on the board and the console threw the *'Maximum call stack exceeded'* error and the site would crash.
+   - The fix for this was to use one function, which was called within itself if a number which had already been used was generated. See below:
+   -```javascript
+   function generateTileValue() {
+    const randomIndex = Math.floor(Math.random() * tileValues.length);
+    tileValue = tileValues[randomIndex];
+    if (!board.includes(tileValue)) {
+        // Remove that tileValue from tileValues and setting to ''
+        tileValues.splice(tileValue - 1, 1, '');
+        displayer.innerHTML = `Next move: ${tileValue}`;
+    } else {
+        generateTileValue();
+    }
+}
 
+ #### Unfixed bugs
+- There is a console error which relates to the the end of round announcer.
+  - If a user completes one full round in in one game mode and then switches from a one-player game to a two-player game or vice-versa and then uses the reset button on the end of round announcer modal, a console error appears.
+  - This is due to the fact the removeChild in the case above is used to remove the div containing the end of round image (happy or sad bunny).
+  - When the game is swicthed, a new div is placed where the div that is removed is and the original div is no longer the child.
+  - This, however, has no practical effect on the user. The images still generate as they should and this does not throw any errors in JSHint, so I am happy to leave it as is, as the code still works.
  ### Deployment
 
 #### This site was built in gitpod and deployed in github. Please see steps to deploy site below:
@@ -184,28 +204,6 @@ I have laid out the user experience process below:
 I would like to acknowledge the help of Tutor Support and in particular, call out Ed, who chatted with me for over an hour one frustrating morning in finding a solution to quite an annoying technical problem I had spent a couple of days stressing over. I would also like to thank my mentor Akshat Garg for his suggestions and guidance withe the project. 
 
 
-
-
-
-
-
-
-bug:
-
-   <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>generateRandomInteger(min, max)
-
-
-   a bug:
-   userAction can be called twice before computerAction timeout is over:
-   could maybe put a faceade over board
-
-
-   acknowledge Ed in tutor support
-
-
-  this is putting the tileValue in a random number of tiles rather than a random tile
-  <img href='assets/images/testing_and_bugs/multiple-tiles-1.png'>
-    <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>
 
 
 
