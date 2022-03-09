@@ -111,6 +111,23 @@ button:hover{
     box-shadow: 2px 2px #e5b1c3;
 }
 
+#footer-links{
+    padding: 10px;
+    display: flex;
+    list-style-type: none;
+    color: 	#87b3d6;
+    margin-bottom: 0px;
+}
+
+#footer{
+    margin-top: auto;
+}
+
+#footer-links li{
+    padding:20px;
+}
+
+
 #announcer{
     padding:20px 40px;
     font-family: 'Bubblegum Sans', cursive;
