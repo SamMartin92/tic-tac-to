@@ -62,6 +62,8 @@ I have laid out the user experience process below:
 - Upon selecting the only button available to the user, they will be brought to the game choice screen.
 - Here there are two buttons which will initiate either the One Player game vs the 'computer' or the Two Player game, meant to be played with another user.
 
+<img src='assets/images/readme/features/landing-page-mobile.jpg' style='height: 400px'>         <img src='assets/images/readme/features/landing-page.PNG' style='height: 400px'> 
+
 #### One player game:
 - Users are taken to this screen if they choose the 'Vs Computer' option.
 - In this game, users play against the 'computer'.
@@ -74,6 +76,7 @@ I have laid out the user experience process below:
 - The reset button when pressed, will empty the board of all numbers, generate a new target value in the heading, a new 'Next move' number and refill the remaining numbers to be used until they are input onto the board.
 - The 'Two player' button below reset will open the two-player game.
 
+<img src='assets/images/readme/features/one-player-mobile.jpg' style='height: 400px'>  <img src='assets/images/readme/features/one-player-desktop.PNG' style='height: 400px'>  
 #### Two player game:
 - The two-player game keeps the same design as the one-player game. Users are brought here if they choose the 'Two Player' button on the game choice screen or the 'Two Player' button in the one=player game.
 - The rules of the game remain the same, however, when a user inputs a number on the board, there is no randomly generated computer action after this. 
