@@ -57,7 +57,7 @@ I have laid out the user experience process below:
  - The colour scheme of the landing page is consistent throughout the site and is what users will see at each stage of their experience.
  - The colours, theme and font of the game heading make it apparent that this site is targeted at child users.
  - The instructions of the game are laid out in simple and concise terms. 
- ![Desktop landing page](/workspace/tic-tac-to/assets/images/readme/features/landing-page.PNG) ![mobile landing page](/workspace/tic-tac-to/assets/images/readme/features/landing-page-mobile.jpg)
+ ![Desktop landing page](assets/images/readme/features/landing-page.PNG) ![mobile landing page](assets/images/readme/features/landing-page-mobile.jpg)
 
 #### Game choice:
 - Upon selecting the only button available to the user, they will be brought to the game choice screen.
