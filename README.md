@@ -123,7 +123,7 @@ I have laid out the user experience process below:
     let randomMove= Math.floor(Math.random()*availableMoves.length);
     let computerMove=availableMoves[randomMove];
     computerMove.innerText=tileValue;
-  }  
+    }  
   
   - The fix for this bug was to break up the function into two seperate functions, one to find the available moves and then one to select a tile from that array.
   - ```javascript
