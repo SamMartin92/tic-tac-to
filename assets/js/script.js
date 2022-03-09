@@ -243,6 +243,7 @@ function openPlayerGame() {
     function returnToComputerGame(){
         let belowContainerDiv= document.querySelector('.below-container');
         belowContainerDiv.remove();
+        board = ['', '', '', '', '', '', '', '', ''];
         tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         openComputerGame();
     }
@@ -380,6 +381,7 @@ function openComputerGame() {
 
     function returnToPlayerGame(){
         let belowContainerDiv= document.querySelector('.below-container');
+        board = ['', '', '', '', '', '', '', '', ''];
         tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         belowContainerDiv.remove();
         openPlayerGame();
