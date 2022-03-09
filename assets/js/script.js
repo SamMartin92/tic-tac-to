@@ -190,7 +190,7 @@ function openPlayerGame() {
         }
         if (!board.includes('') && !playerOneWinner && !playerTwoWinner) {
             modal.classList.remove('hide');
-            announcer.innerHTML = `TIE GAME! HIT RESET!`
+            announcer.innerHTML = `TIE GAME! HIT RESET!`;
             generateSadImage();
         }
     }
@@ -349,7 +349,7 @@ function openComputerGame() {
         getAvailableMoves();
         let randomMove = Math.floor(Math.random() * availableMoves.length);
         let newTile = availableMoves[randomMove];
-        newTile.innerText = tileValue; //removed tileValue++
+        newTile.innerText = tileValue; 
         board[tiles.indexOf(newTile)] = parseInt(tileValue);
         numbers.innerHTML = tileValues.join(' ');
         checkComputerWinner();
