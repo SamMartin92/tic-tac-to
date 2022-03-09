@@ -36,6 +36,15 @@ I have laid out the user experience process below:
 - Use a soft colour scheme and use a black font for certain non-game elements to contrast against the general theme.
 * ## User Stories:
 
+* ### First time users:
+- should immediately understand the purpose of the site from instructions section on the landing page.
+- should be able to intuitively navigate to the game of their choice.
+- should be able to understand the rules and how to play the game almost immediately having entered the game.
+
+* ### Returning users:
+- can expect to pass the time playing the same game they have previously.
+- can expect to see designs and images (such as the sad & happy images generated at the end of rounds).
+
 * ## Features:
 
 * ### Existing features:
