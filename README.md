@@ -91,7 +91,7 @@ I have laid out the user experience process below:
  
 * ### Media
 - The happy and sad bunnies whihc pop up at the end of each round were taken from [Pexels](https://www.pexels.com/). There is no requiremnt fro attirbution in this case but the creator of these images can be found at this [link](https://pixabay.com/illustrations/rabbit-easter-pastel-bunny-hare-4120085/).
--The favicon used was taken from [favicon.cc](https://www.favicon.cc/?action=icon&file_id=99873).
+- The favicon used was taken from [favicon.cc](https://www.favicon.cc/?action=icon&file_id=99873).
 
 * ### Acknowledgements
 I would like to acknowledge the help of Tutor Support and in particular, call out Ed, who chatted with me for over an hour one frustrating morning in finding a solution to quite an annoying technical problem I had spent a couple of days stressing over. I would also like to thank my mentor Akshat Garg for his suggestions and guidance withe the project. 
