@@ -47,16 +47,103 @@ I have laid out the user experience process below:
 
  ## Features:
 
+*#### I have left the screenshots of the mobile screens uncropped so that the navigation and notification bars and how they look with the site show on the device unedited.*
+
  ### Existing features:
 
+ #### Landing Page:
+ - The landing page is the first thing a user will see upon opening the site in their browser.
+ - It displays the name of the page/game and displays a lists the rules of the game.
+ - The colour scheme of the landing page is consistent throughout the site and is what users will see at each stage of their experience.
+ - The colours, theme and font of the game heading make it apparent that this site is targeted at child users.
+ - The instructions of the game are laid out in simple and concise terms. 
+
+#### Game choice:
+- Upon selecting the only button available to the user, they will be brought to the game choice screen.
+- Here there are two buttons which will initiate either the One Player game vs the 'computer' or the Two Player game, meant to be played with another user.
+
+#### One player game:
+- Users are taken to this screen if they choose the 'Vs Computer' option.
+- In this game, users play against the 'computer'.
+- The tic-tac-toe board displays and the target value for the round is displayed in the heading above.
+- The game commences when a user clicks on a tile which inserts the number generated for them under the heading next to 'Next move:'
+- When the player decides where to place the number, a new number is generated in the beside 'Next Move:' and the 'computer' randomly inputs this number on the board.
+- As the numbers are input on the board, they are removed from the remaining numbers which are laid out below 'Next move'.
+- As per the instructions, if the target value in the heading is achieved by summing up three numbers in a full row, column or diagonal, the round is won.
+- The score counters below the board keep track of the users' and computers' scores after each round.
+- The reset button when pressed, will empty the board of all numbers, generate a new target value in the heading, a new 'Next move' number and refill the remaining numbers to be used until they are input onto the board.
+- The 'Two player' button below reset will open the two-player game.
+
+#### Two player game:
+- The two-player game keeps the same design as the one-player game. Users are brought here if they choose the 'Two Player' button on the game choice screen or the 'Two Player' button in the one=player game.
+- The rules of the game remain the same, however, when a user inputs a number on the board, there is no randomly generated computer action after this. 
+- Instead the text below the board changes to 'Player Two's Turn' and the second user inputs their choice until there is a winner or the board fills up resulting in a tie.
+- The 'One Player' button below reset brings you to the one=player game.
+
+#### End of round announcer:
+- The end of round announcer is a modal which pops up and covers the screen in the event of a round winner, or a tie game.
+- This announces the winner of the round, or a tie in the event that there is no winner.
+- Below that, is a randomly generated picture of a bunny, either happy or sad.
+- With the child user in mind, in a one-player game, a happy bunny will present in the event that the player beats the computer. A sad bunny will present if the computer wins the round or in the event of a tie.
+- In the two-player game, a happy bunny will present if either player wins and a sad bunny presents in the event of a tie.
+- The bunny images are taken from the same collection credited below and match the existing colour scheme of the site.
+- Below the image, is a reset button which serves the same function as the reset button in the game modes.
+
  ### Features to implement:
-
+- As mentioned below in the credits, I have made a tic-tac-toe game previously as some general practice while learning javascript. I would like to introduce that as an option in the game choice screen. In this instance, to keep the project single minded, I did not add that feature.
  ### Font & Color Scheme
-
+- The main font used for the theme of this site is 'Bubblegum Sans' from Google Fonts. This was chosen as it is a cute, playful font and appealling to a child user target audience.
+- It is used in the heading, on all buttons and in each game element.
+- To contrast with 'Bubblegum Sans', 'Varela Round', also from Google Fonts, was chosen for the instrcutions on the landing page. As this may need to be comprehended by a parent or guardian for the child user, a more standard font was chosen.
+- With the concise nature of the rules, a straight forward font was also chosen to contrast against the playful font used elsehwere.
+- In that regard, a black font was chosen to contrast strongly against the pastel pink background.
+- The same was used with the remoaing numbers and 'Next Move' which display above the board. The goal being to contrast against the numbers being input into the board.
+- The basis of the colour scheme was taken from the below:
+- A pastel colour cheme was chosen, to keep the site light and playful. These colours are often referred to as 'baby-pink', 'baby-blue' etc and I believe this theme is in keeping with the younger target audience of the game.
+- In the end, as to not confuse the site background, the green shade and purple shade were excluded. Although, they show up in the images displayed at the end of a round.
+- Some of these colours are darkened, for example, a darker shade of blue was chosen for contrast. A darker shade of the pink and yellow are also used when hovering over a tile on the board or one of the buttons, respectively.
  ## Testing:
-
+- As this project revolved mainly around the use of javascript and how it was used to interact with the CSS and HTML elements of the page, Dev Tools was the main tool when testing throughout the project:
+    - The console was used to test the results of functions wihout having to run them over and over again before committing them into the code. This was especially necessary with rehards to the functions that randomly generated values and objects.
+    - The console also gave indications through error messages as to why the site was not responding as expected while code was being written.
+ - I tested the site in edge, chrome, & firefox & mobile to ensure it was functional across the most prominent browsers, ensuring it acted as it did with dev tools after deployment.
+ - I used lighthouse to generate reports for mobile and desktop. My main concern for this project was the accessability. Results shown below. Mobile and desktop reports respectively:
+ - The js code was passed through JSHint to ensure there were no errors.
+ - The site was passed through the html validator https://validator.w3.org/ to ensure there were no errors.
+ - style.css was passed through https://jigsaw.w3.org/css-validator/ to ensure there were no errors.
  ### Bugs
-
+- There were numerous bugs that had to be fixed when building the site. I will lay out some examples of bugs I encountered here.
+- When building the function for the computer's move in the one player game, I encountered a bug in which, rather than  entering a random value into a single tile, the computer was inputting a value into a random number of tiles on the board. The original function that caused this was as follows:
+-```javascript
+let availableMoves=[];
+ for (let i = 0; i < tiles.length; i++) {  //iterating through all tiles on the board
+    if (tiles[i].textContent == '') {      // checking if tile is empty
+      availableMoves.push(tiles[i]);       // adding all empty tiles to availableMoves
+    }
+    let randomMove= Math.floor(Math.random()*availableMoves.length);
+    let computerMove=availableMoves[randomMove];
+    computerMove.innerText=tileValue;
+  }``` 
+  
+  - The fix for this bug was to break up the function into two seperate functions, one to find the available moves and then one to select a tile from that array.
+  - ```javascript
+      function getAvailableMoves() {
+        tiles.forEach(function (tile) {
+            if (tile.innerText == '') {
+                availableMoves.push(tile);
+            }
+            return availableMoves;
+        });
+        
+        function computerAction() {
+        getAvailableMoves();
+        let randomMove = Math.floor(Math.random() * availableMoves.length);
+        let newTile = availableMoves[randomMove];
+        newTile.innerText = tileValue; 
+        .
+        .
+        .
+        }``` 
  #### Unfixed bugs
 
  ### Deployment
@@ -104,16 +191,7 @@ I would like to acknowledge the help of Tutor Support and in particular, call ou
 
 
 bug:
- for (let i = 0; i < tiles.length; i++) {
-    if (tiles[i].textContent == '') {
-      availableMoves.push(tiles[i]);
-    }/*https://codepen.io/lando464/pen/BPGEKO*/
 
-    let randomMove= Math.floor(Math.random()*availableMoves.length);
-    let computerMove=availableMoves[randomMove];
-    computerMove.innerText=tileValue;
-
-  }
    <img src ='assets/images/testing_and_bugs/multiple-tiles-2.png'>generateRandomInteger(min, max)
 
 
