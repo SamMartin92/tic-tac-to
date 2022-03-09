@@ -7,20 +7,33 @@
 * ## Objective
 My objective in this project is to build an interactive front-end site. It should respond to the users' actions, allowing them to enagage with the data and alter the way the site displays the information, allowing them to achieve the goals of the site and experience it in a straight-forward and enjoyable manner.
 
-This encapsulates the brief as laid out Portfolio Project 2 Assessment Guide. This site has been built as my second portfolio project as part of my Diploma in Software Development with the [Code Institute](https://codeinstitute.net/ie/) . For my project, I have decided to build a math's based variation on the classic game tic tac toe, hence the title. The game is aimed at children from ages 4-7 who are beginnning to learn and understand addition for the first time.
+This encapsulates the brief as laid out Portfolio Project 2 Assessment Guide. This site has been built as my second portfolio project as part of my Diploma in Software Development with the [Code Institute](https://codeinstitute.net/ie/) . For my project, I have decided to build a math's based variation on the classic game tic tac toe, hence the title. The game is aimed at children from ages 4-8 who are learning and understanding addition for the first time.
 
 The game sets a new target score between 12-20, which is displayed above the tic-tac-toe board and users input a randomly generated number from 1-9 on each turn by clicking a tile on the board. A round is won if three numbers across a row, column or diagonal sum up to the target score for that round. The game can be played with another user or verses 'the computer'.
 
+I have laid out the user experience process below:
+
 * ### Strategy
+- Build a fun mobile first online game for young children, aged roughly 4-8 years old.
+- Make a game with a simple goal which will help educate the young user.
+- Design a visually pleasing site for a young user.
 
 * ### Scope
-
+- Build the entire game on a single page site with a landing page explaining the rules for parents/guardians of the user.
+- Build a game with very straight forward rules that will not cause a steep learning curve.
+- Design a site which intuitively allows the user to access the game without any difficulty.
 * ### Structure
-
+- Present the game on one signle page with interactive design built with javascript.
+- Present the user with intuitive and consistent buttons to interact with and navigate through the site with ease.
+- Initiate the game within 2 clicks upon entering the site.
 * ### Skeleton
-
+- Single site with different windows which pop up and replace one another on button clicks.
+- Before proceeding with any coding, I made some simple wireframes to act as a guide for the design of the site. The simplicity of the wireframes was something I wanted to reflect in the finished site to keep it single minded and non-distracting for yound users.
+- I then spoke with my mentor and decided how to lay out the site, such as the landing page and game choice sections.
 * ### Surface
-
+- Present a cute design for the site to appeal to child users.
+- Use cute images and playful font throughout the site.
+- Use a soft colour scheme and use a black font for certain non-game elements to contrast against the general theme.
 * ## User Stories:
 
 * ## Features:
