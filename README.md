@@ -71,16 +71,16 @@ I have laid out the user experience process below:
 - After a few moments, refresh the page and the link to the live site is displayed.
 
 
-* ## Credits
+ ## Credits
 
-* ### Content
+ ### Content
 
 - The idea for the site grew while doing some practice projects to familiarise myself with javascript. I made a simple tic tac to game following a youtube tutorial from [Javascript Academy](https://www.youtube.com/watch?v=B3pmT7Cpi24&ab_channel=JavaScriptAcademy) and it was from there that the basis of the project was built and the idea of a variation of tic-tac-toe was developed.
 - In building the modal that displays when the end of a round is reached, I used [this](https://www.youtube.com/watch?v=XH5OW46yO8I) video on youtube to teach myself.
 - Any other times I found a solution for some piece of code is attributed in the directory files.
-- -The basis of the original colour scheme was taken from [color-hex.com](https://www.color-hex.com/color-palette/1007780) and was modified and developed throughout the project.
+- The basis of the original colour scheme was taken from [color-hex.com](https://www.color-hex.com/color-palette/1007780) and was modified and developed throughout the project.
 
-* ### Technologies Used
+ ### Technologies Used
 
 - This site was built in [Gitpod](https://gitpod.io/workspaces) and pushed to repository in [Github](https://github.com/) and was deployed to a live site from there.
 - Dev Tools was used continuously throughout the project. The console was used to build and debug functions. The styling of the page owes most of it's deveopment to dev tools allowing me to visualise the positioning and spacing of content on the site.
@@ -89,11 +89,11 @@ I have laid out the user experience process below:
 - [TinyPNG](https://tinypng.com/) was used to compress the size of the images used in the live site and README.md and [RemoveBG](https://www.remove.bg/) was used to remove the background from the bunny images used when the round is finished.
 - [JSHint](https://jshint.com/), [W3C Markup Validation Service](https://validator.w3.org/) and [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) were used to validate the javascript, html & css used in this project respectively.
  
-* ### Media
+ ### Media
 - The happy and sad bunnies whihc pop up at the end of each round were taken from [Pexels](https://www.pexels.com/). There is no requiremnt fro attirbution in this case but the creator of these images can be found at this [link](https://pixabay.com/illustrations/rabbit-easter-pastel-bunny-hare-4120085/).
 - The favicon used was taken from [favicon.cc](https://www.favicon.cc/?action=icon&file_id=99873).
 
-* ### Acknowledgements
+ ### Acknowledgements
 I would like to acknowledge the help of Tutor Support and in particular, call out Ed, who chatted with me for over an hour one frustrating morning in finding a solution to quite an annoying technical problem I had spent a couple of days stressing over. I would also like to thank my mentor Akshat Garg for his suggestions and guidance withe the project. 
 
 
