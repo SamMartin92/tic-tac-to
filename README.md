@@ -147,7 +147,7 @@ I have laid out the user experience process below:
  - Another bug related to choosing a random number each round. Originally I used two seperate functions, one function to generate the number and another to check whether that had been used already during that round.
    - As I was calling the second function in the first, while in theory it should not have caused an infinite loop, at times it would take too long to find a number not already used on the board and the console threw the *'Maximum call stack exceeded'* error and the site would crash.
    - The fix for this was to use one function, which was called within itself if a number which had already been used was generated. See below:
-   -```javascript
+   - ```javascript
    function generateTileValue() {
     const randomIndex = Math.floor(Math.random() * tileValues.length);
     tileValue = tileValues[randomIndex];
