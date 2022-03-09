@@ -148,17 +148,17 @@ I have laid out the user experience process below:
    - As I was calling the second function in the first, while in theory it should not have caused an infinite loop, at times it would take too long to find a number not already used on the board and the console threw the *'Maximum call stack exceeded'* error and the site would crash.
    - The fix for this was to use one function, which was called within itself if a number which had already been used was generated. See below:
    - ```javascript
-   function generateTileValue() {
-    const randomIndex = Math.floor(Math.random() * tileValues.length);
-    tileValue = tileValues[randomIndex];
-    if (!board.includes(tileValue)) {
+        function generateTileValue() {
+        const randomIndex = Math.floor(Math.random() * tileValues.length);
+        tileValue = tileValues[randomIndex];
+         if (!board.includes(tileValue)) {
         // Remove that tileValue from tileValues and setting to ''
         tileValues.splice(tileValue - 1, 1, '');
         displayer.innerHTML = `Next move: ${tileValue}`;
-    } else {
+         } else {
         generateTileValue();
-    }
-}
+          }
+        }
 
  #### Unfixed bugs
 - There is a console error which relates to the the end of round announcer.
