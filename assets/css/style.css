@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Sansita:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Varela+Round&display=swap');
 
 *{
     margin:0;
     background-color: #ffc5d9;
-    font-family: 'Bubblegum Sans', cursive;
 }
 
 body{
@@ -27,15 +26,25 @@ body{
     font-family: 'Bubblegum Sans', cursive;
 }
 
+#instructions h2{
+    font-size: 2em;
+    font-family: 'Varela Round', sans-serif;
+}
+
 #target-value{
     background-color: #ffecb8;
     font-size: 45px;
     text-decoration: underline;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
+#displayer{
+    font-family: 'Bubblegum Sans', cursive;
+}
 #numbers{
     padding:10px;
     max-width: 300px;
+    font-family: 'Bubblegum Sans', cursive;
     }
 
 #instructions{
@@ -49,6 +58,12 @@ body{
 ul{
     margin-bottom: 20px;
     font-size: 25px;
+    font-family: 'Varela Round', sans-serif;
+    max-width: 450px;
+}
+
+li{
+    margin: 10px;
 }
 
 .button{
@@ -56,9 +71,10 @@ ul{
     padding: 10px;
     border-radius: 8px;
     border: none;
-    font-size: 22px;
+    font-size: 30px;
     background-color: #ffecb8;
     color: 	#87b3d6;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 button:hover{
@@ -81,6 +97,7 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 .modal{
@@ -96,6 +113,7 @@ button:hover{
 
 #announcer{
     padding:20px 40px;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 #image-holder{
@@ -108,6 +126,7 @@ button:hover{
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
     max-width: 300px;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
 .tile{
@@ -132,8 +151,12 @@ button:hover{
 .below-container{
     text-align: center;
     padding :10px;
+    font-family: 'Bubblegum Sans', cursive;
 }
 
+#returner{
+    margin-top: 20px;
+}
 #return-button{
     float: left;
     text-decoration: underline;
@@ -145,4 +168,5 @@ button:hover{
 .score-box{
     padding:8px;
     font-size: larger;
+    font-family: 'Bubblegum Sans', cursive;
 }
