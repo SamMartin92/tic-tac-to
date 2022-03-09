@@ -115,15 +115,15 @@ I have laid out the user experience process below:
 - There were numerous bugs that had to be fixed when building the site. I will lay out some examples of bugs I encountered here.
 - When building the function for the computer's move in the one player game, I encountered a bug in which, rather than  entering a random value into a single tile, the computer was inputting a value into a random number of tiles on the board. The original function that caused this was as follows:
  - ```javascript
-let availableMoves=[];
- for (let i = 0; i < tiles.length; i++) {  //iterating through all tiles on the board
-    if (tiles[i].textContent == '') {      // checking if tile is empty
+      let availableMoves=[];
+       for (let i = 0; i < tiles.length; i++) {  //iterating through all tiles on the board
+       if (tiles[i].textContent == '') {      // checking if tile is empty
       availableMoves.push(tiles[i]);       // adding all empty tiles to availableMoves
     }
     let randomMove= Math.floor(Math.random()*availableMoves.length);
     let computerMove=availableMoves[randomMove];
     computerMove.innerText=tileValue;
-  } ``` 
+  }  
   
   - The fix for this bug was to break up the function into two seperate functions, one to find the available moves and then one to select a tile from that array.
   - ```javascript
