@@ -14,9 +14,9 @@ The game sets a new target score between 12-20, which is displayed above the tic
 I have laid out the user experience process below:
 
 * ### Strategy
-- Build a fun mobile first online game for young children, aged roughly 4-8 years old.
-- Make a game with a simple goal which will help educate the young user.
-- Design a visually pleasing site for a young user.
+ - Build a fun mobile first online game for young children, aged roughly 4-8 years old.
+ - Make a game with a simple goal which will help educate the young user.
+ - Design a visually pleasing site for a young user.
 
 * ### Scope
 - Build the entire game on a single page site with a landing page explaining the rules for parents/guardians of the user.
