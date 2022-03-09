@@ -66,6 +66,22 @@ function generateSadImage() {
     imageSpace.appendChild(imageDiv);
 }
 
+function checkIfWon() {
+    for (let i = 0; i < 8; i++) {
+        const winCondition = winningConditions[i];
+        const firstPositionNumber = board[winCondition[0]];
+        const secondPositionNumber = board[winCondition[1]];
+        const thirdPositionNumber = board[winCondition[2]];
+        if (firstPositionNumber === '' || secondPositionNumber === '' || thirdPositionNumber === '') {
+            continue;
+        }
+        if (firstPositionNumber + secondPositionNumber + thirdPositionNumber === parseInt(target.innerHTML)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function isValidAction(tile) {
     if (tile.innerText !== '') {
         return false;
@@ -148,24 +164,15 @@ function openPlayerGame() {
         tile.addEventListener('click', () => onTwoPlayerGameTileClick(tile, index));
     });
 
-    function checkForWinner() { 
-        for (let i = 0; i <= 7; i++) {
-            const winCondition = winningConditions[i];
-            const firstPositionNumber = board[winCondition[0]];
-            const secondPositionNumber = board[winCondition[1]];
-            const thirdPositionNumber = board[winCondition[2]];
-            if (firstPositionNumber === '' || secondPositionNumber === '' || thirdPositionNumber === '') {
-
-                continue;
-
-            }
-            if (firstPositionNumber + secondPositionNumber + thirdPositionNumber === parseInt(target.innerHTML) && playerOneTurn) {
-                playerTwoWinner = true;
-            } else {
-                playerOneWinner = true;
-            }
-            break;
-
+    function checkForWinner() {
+        const hasWon = checkIfWon();
+        if(hasWon && playerOneTurn) {
+            playerTwoWinner = true;
+        } else if (hasWon && !playerOneTurn){
+            playerOneWinner= true;
+        } else{
+            playerOneWinner=false;
+            playerTwoWinner=false;
         }
         if (playerOneWinner) {
             modal.classList.remove('hide');
@@ -183,10 +190,11 @@ function openPlayerGame() {
         }
         if (!board.includes('') && !playerOneWinner && !playerTwoWinner) {
             modal.classList.remove('hide');
-            announcer.innerHTML = `TIE. Click to Reset!`;
+            announcer.innerHTML = `TIE GAME! HIT RESET!`
             generateSadImage();
         }
     }
+
 
     function changePlayer() {
         if (playerOneTurn) {
@@ -279,21 +287,6 @@ function openComputerGame() {
         tile.addEventListener('click', () => onSinglePlayerGameTileClick(tile, index));
     });
 
-    function checkIfWon() {
-    for (let i = 0; i < 8; i++) {
-        const winCondition = winningConditions[i];
-        const firstPositionNumber = board[winCondition[0]];
-        const secondPositionNumber = board[winCondition[1]];
-        const thirdPositionNumber = board[winCondition[2]];
-        if (firstPositionNumber === '' || secondPositionNumber === '' || thirdPositionNumber === '') {
-            continue;
-        }
-        if (firstPositionNumber + secondPositionNumber + thirdPositionNumber === parseInt(target.innerHTML)) {
-            return true;
-        }
-    }
-    return false;
-}
 
     function checkPlayerWinner() {
         playerWinner = checkIfWon();
