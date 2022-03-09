@@ -58,17 +58,19 @@ I have laid out the user experience process below:
  - The colours, theme and font of the game heading make it apparent that this site is targeted at child users.
  - The instructions of the game are laid out in simple and concise terms. 
 
+<img src='assets/images/readme/features/landing-page-mobile.jpg' height='400px' style='margin:20px'> <img src='assets/images/readme/features/landing-page.PNG' style='height: 350px' style='margin:20px'> 
+
 #### Game choice:
 - Upon selecting the only button available to the user, they will be brought to the game choice screen.
 - Here there are two buttons which will initiate either the One Player game vs the 'computer' or the Two Player game, meant to be played with another user.
 
-<img src='assets/images/readme/features/landing-page-mobile.jpg' style='height: 400px'>         <img src='assets/images/readme/features/landing-page.PNG' style='height: 400px'> 
+<img src='assets/images/readme/features/game-choice-mobile.jpg' height='400px' style='margin:20px'> <img src='assets/images/readme/features/game-choice-desktop.PNG' height='350px' style='margin:20px'> 
 
 #### One player game:
 - Users are taken to this screen if they choose the 'Vs Computer' option.
 - In this game, users play against the 'computer'.
 - The tic-tac-toe board displays and the target value for the round is displayed in the heading above.
-- The game commences when a user clicks on a tile which inserts the number generated for them under the heading next to 'Next move:'
+- The game commences when a user clicks on a tile which inserts the number generated for them under the heading next to 'Next move:' 
 - When the player decides where to place the number, a new number is generated in the beside 'Next Move:' and the 'computer' randomly inputs this number on the board.
 - As the numbers are input on the board, they are removed from the remaining numbers which are laid out below 'Next move'.
 - As per the instructions, if the target value in the heading is achieved by summing up three numbers in a full row, column or diagonal, the round is won.
@@ -76,12 +78,15 @@ I have laid out the user experience process below:
 - The reset button when pressed, will empty the board of all numbers, generate a new target value in the heading, a new 'Next move' number and refill the remaining numbers to be used until they are input onto the board.
 - The 'Two player' button below reset will open the two-player game.
 
-<img src='assets/images/readme/features/one-player-mobile.jpg' style='height: 400px'>  <img src='assets/images/readme/features/one-player-desktop.PNG' style='height: 400px'>  
+<img src='assets/images/readme/features/one-player-mobile.jpg' height='400px' style='margin:20px'>  <img src='assets/images/readme/features/one-player-desktop.PNG' height= '350px' style='margin:20px'>  
+
 #### Two player game:
 - The two-player game keeps the same design as the one-player game. Users are brought here if they choose the 'Two Player' button on the game choice screen or the 'Two Player' button in the one=player game.
 - The rules of the game remain the same, however, when a user inputs a number on the board, there is no randomly generated computer action after this. 
 - Instead the text below the board changes to 'Player Two's Turn' and the second user inputs their choice until there is a winner or the board fills up resulting in a tie.
 - The 'One Player' button below reset brings you to the one=player game.
+
+<img src='assets/images/readme/features/two-player-mobile.jpg' height='400px' style='margin:20px'>  <img src='assets/images/readme/features/two-player-desktop.PNG' height= '350px' style='margin:20px'>  
 
 #### End of round announcer:
 - The end of round announcer is a modal which pops up and covers the screen in the event of a round winner, or a tie game.
@@ -92,8 +97,11 @@ I have laid out the user experience process below:
 - The bunny images are taken from the same collection credited below and match the existing colour scheme of the site.
 - Below the image, is a reset button which serves the same function as the reset button in the game modes.
 
+<img src='assets/images/readme/features/modal-mobile.jpg' height='400px' style='margin:20px'> <img src='assets/images/readme/features/modal-tie-game.PNG' height='350px' style='margin:20px'>  <img src='assets/images/readme/features/modal-desktop.PNG' height= '350px' style='margin:20px'>  
+
  ### Features to implement:
 - As mentioned below in the credits, I have made a tic-tac-toe game previously as some general practice while learning javascript. I would like to introduce that as an option in the game choice screen. In this instance, to keep the project single minded, I did not add that feature.
+
  ### Font & Color Scheme
 - The main font used for the theme of this site is 'Bubblegum Sans' from Google Fonts. This was chosen as it is a cute, playful font and appealling to a child user target audience.
 - It is used in the heading, on all buttons and in each game element.
@@ -102,6 +110,9 @@ I have laid out the user experience process below:
 - In that regard, a black font was chosen to contrast strongly against the pastel pink background.
 - The same was used with the remoaing numbers and 'Next Move' which display above the board. The goal being to contrast against the numbers being input into the board.
 - The basis of the colour scheme was taken from the below:
+
+<img src=assets/images/readme/features/colours.PNG>
+
 - A pastel colour cheme was chosen, to keep the site light and playful. These colours are often referred to as 'baby-pink', 'baby-blue' etc and I believe this theme is in keeping with the younger target audience of the game.
 - In the end, as to not confuse the site background, the green shade and purple shade were excluded. Although, they show up in the images displayed at the end of a round.
 - Some of these colours are darkened, for example, a darker shade of blue was chosen for contrast. A darker shade of the pink and yellow are also used when hovering over a tile on the board or one of the buttons, respectively.
@@ -111,9 +122,20 @@ I have laid out the user experience process below:
     - The console also gave indications through error messages as to why the site was not responding as expected while code was being written.
  - I tested the site in edge, chrome, & firefox & mobile to ensure it was functional across the most prominent browsers, ensuring it acted as it did with dev tools after deployment.
  - I used lighthouse to generate reports for mobile and desktop. My main concern for this project was the accessability. Results shown below. Mobile and desktop reports respectively:
+
+ <img src='assets/images/readme/testing-and-bugs/mobile-lighthouse.PNG'>
+
+ <img src='assets/images/readme/testing-and-bugs/desktop-lighthouse.PNG'>
+
  - The js code was passed through JSHint to ensure there were no errors.
  - The site was passed through the html validator https://validator.w3.org/ to ensure there were no errors.
+
+<img src='assets/images/readme/testing-and-bugs/html-checker.PNG'>
+
  - style.css was passed through https://jigsaw.w3.org/css-validator/ to ensure there were no errors.
+
+ <img src='assets/images/readme/testing-and-bugs/css-validator.PNG'>
+
  ### Bugs
 - There were numerous bugs that had to be fixed when building the site. I will lay out some examples of bugs I encountered here.
 - When building the function for the computer's move in the one player game, I encountered a bug in which, rather than  entering a random value into a single tile, the computer was inputting a value into a random number of tiles on the board. The original function that caused this was as follows:
@@ -127,7 +149,9 @@ I have laid out the user experience process below:
     let computerMove=availableMoves[randomMove];
     computerMove.innerText=tileValue;
     }  
-  
+
+<img src='assets/images/readme/testing-and-bugs/multiple-tiles-1.PNG' height='350px' style='margin:20px'> <img src='assets/images/readme/testing-and-bugs/multiple-tiles-1.PNG' height='350px' style='margin:20px'>
+
   - The fix for this bug was to break up the function into two seperate functions, one to find the available moves and then one to select a tile from that array.
   - ```javascript
       function getAvailableMoves() {
@@ -166,6 +190,9 @@ I have laid out the user experience process below:
  #### Unfixed bugs
 - There is a console error which relates to the the end of round announcer.
   - If a user completes one full round in in one game mode and then switches from a one-player game to a two-player game or vice-versa and then uses the reset button on the end of round announcer modal, a console error appears.
+  
+  <img src='assets/images/readme/testing-and-bugs/console-error.PNG'>
+
   - This is due to the fact the removeChild in the case above is used to remove the div containing the end of round image (happy or sad bunny).
   - When the game is swicthed, a new div is placed where the div that is removed is and the original div is no longer the child.
   - This, however, has no practical effect on the user. The images still generate as they should and this does not throw any errors in JSHint, so I am happy to leave it as is, as the code still works.
