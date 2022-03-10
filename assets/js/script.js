@@ -2,7 +2,6 @@ const startButton = document.getElementById('start-button');
 const mainContainer = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
 const numbers = document.getElementById('numbers');
-const tiles = Array.from(document.getElementsByClassName('tile'));
 const modal = document.getElementById('modal-container');
 const imageSpace = document.getElementById('image-holder');
 const modalReset = document.getElementById('reset-modal');
@@ -153,7 +152,6 @@ function setTilesHTML() {
         tilesHTML += '<div class="tile hover"></div>';
     }
     mainContainer.innerHTML = tilesHTML;
-    // TODO: Check if this is required
     mainContainer.removeAttribute('id');
     mainContainer.classList.add('container'); //removed <span></span> id=announcer from below span
 }
@@ -188,6 +186,7 @@ function openPlayerGame() {
     <div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
     numbers.innerHTML = tileValues.join(' ');
+    let tiles = Array.from(document.getElementsByClassName('tile'));
     let isGameActive = true;
     let playerOneWinner = false;
     let playerTwoWinner = false;
@@ -278,8 +277,6 @@ function openPlayerGame() {
         target.innerHTML = generateRandomInteger(12, 20);
         generateTileValue();
     }
-
-
 
     function resetFromModal() {
         resetBoard();
