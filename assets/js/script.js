@@ -5,6 +5,8 @@ const numbers = document.getElementById('numbers');
 const modal = document.getElementById('modal-container');
 const imageSpace = document.getElementById('image-holder');
 const modalReset = document.getElementById('reset-modal');
+const close= document.getElementById('close');
+const seeBoardButton= document.getElementById('see-board');
 const displayer = document.getElementById('displayer');
 const happyImages = ['assets/images/score-images/happy-1.png', 'assets/images/score-images/happy-2.png',
     'assets/images/score-images/happy-3.png', 'assets/images/score-images/happy-4.png'
@@ -18,7 +20,6 @@ let vsComputerBtn, vsPlayerBtn;
 let tileValue;
 let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let board = ['', '', '', '', '', '', '', '', ''];
-let close= document.getElementById('close');
 let instructionsHTML=   `
                         <ul>
                         <li>Each turn, you get a number.</li>
@@ -76,17 +77,32 @@ function generateSadImage() {
     imageSpace.appendChild(imageDiv);
 }
 
-function showInstructions(){
+function hideModal(){
+    modal.classList.add('hide');
+    close.classList.add('hide');
+}
+
+function showModal(){
     modal.classList.remove('hide');
     close.classList.remove('hide');
+}
+
+function letSeeBoard(){
+    modal.classList.add('hide');
+    imageSpace.innerHTML=``;
+}
+
+function showInstructions(){
+    showModal();
+    seeBoardButton.classList.add('hide');
     announcer.innerHTML = instructionsHTML;
     modalReset.classList.add('hide');
 }
 
 function closeInstructions(){
-    modal.classList.add('hide');
-    close.classList.add('hide');
+    hideModal();
     announcer.innerHTML= ``;
+    seeBoardButton.classList.remove('hide');
     modalReset.classList.remove('hide');
 }
 
@@ -255,7 +271,6 @@ function openPlayerGame() {
         tiles.forEach(function (tile) {
             tile.innerText = '';
         });
-        // tileValue = 1;
         numbers.innerHTML = tileValues.join(' ');
         playerOneWinner = false;
         playerTwoWinner = false;
@@ -285,6 +300,7 @@ function openPlayerGame() {
     close.addEventListener('click', closeInstructions);
     reset.addEventListener('click', resetBoard);
     modalReset.addEventListener('click', resetFromModal);
+    seeBoardButton.addEventListener('click', letSeeBoard);
 }
 //initiates game vs computer
 function openComputerGame() {
@@ -430,6 +446,7 @@ function openComputerGame() {
     instructionsButton.addEventListener('click', showInstructions);
     close.addEventListener('click', closeInstructions);
     modalReset.addEventListener('click', resetFromModal);
+    seeBoardButton.addEventListener('click', letSeeBoard);
 }
 
 function onStartButtonClick() {
