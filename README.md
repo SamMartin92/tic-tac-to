@@ -28,8 +28,12 @@ I have laid out the user experience process below:
 - Initiate the game within 2 clicks upon entering the site.
  ### Skeleton
 - Single site with different windows which pop up and replace one another on button clicks.
+- I then spoke with my mentor and decided how to lay out the site.
 - Before proceeding with any coding, I made some simple wireframes to act as a guide for the design of the site. The simplicity of the wireframes was something I wanted to reflect in the finished site to keep it single minded and non-distracting for yound users.
-- I then spoke with my mentor and decided how to lay out the site, such as the landing page and game choice sections.
+
+<img src='assets/images/readme/wireframes/wireframe-1.PNG'><img src='assets/images/readme/wireframes/wireframe-2.PNG'><img src='assets/images/readme/wireframes/wireframe-3.PNG'>
+
+- As is apprent, the wireframes were used as a guide and the idea of the skeleton of the site developed during its creation.
  ### Surface
 - Present a cute design for the site to appeal to child users.
 - Use cute images and playful font throughout the site.
