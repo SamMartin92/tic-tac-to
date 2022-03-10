@@ -5,7 +5,7 @@ const numbers = document.getElementById('numbers');
 const modal = document.getElementById('modal-container');
 const imageSpace = document.getElementById('image-holder');
 const modalReset = document.getElementById('reset-modal');
-const close= document.getElementById('close');
+const closeButton= document.getElementById('close');
 const seeBoardButton= document.getElementById('see-board');
 const displayer = document.getElementById('displayer');
 const happyImages = ['assets/images/score-images/happy-1.png', 'assets/images/score-images/happy-2.png',
@@ -28,7 +28,7 @@ let instructionsHTML=   `
                         <li>Play against the computer or another player.</li>
                         <li>If all squares are filled with no winner, its a tie game.</li>
                         </ul>
-                        `
+                        `;
 /*
 Indexes within the board
 [0] [1] [2]
@@ -79,12 +79,12 @@ function generateSadImage() {
 
 function hideModal(){
     modal.classList.add('hide');
-    close.classList.add('hide');
+    closeButton.classList.add('hide');
 }
 
 function showModal(){
     modal.classList.remove('hide');
-    close.classList.remove('hide');
+    closeButton.classList.remove('hide');
 }
 
 function letSeeBoard(){
@@ -293,7 +293,7 @@ function openPlayerGame() {
 
     returnButton.addEventListener('click', returnToComputerGame);
     instructionsButton.addEventListener('click', showInstructions);
-    close.addEventListener('click', closeInstructions);
+    closeButton.addEventListener('click', closeInstructions);
     reset.addEventListener('click', resetBoard);
     modalReset.addEventListener('click', resetFromModal);
     seeBoardButton.addEventListener('click', letSeeBoard);
@@ -440,7 +440,7 @@ function openComputerGame() {
     returnButton.addEventListener('click', returnToPlayerGame);
     reset.addEventListener('click', resetBoard);
     instructionsButton.addEventListener('click', showInstructions);
-    close.addEventListener('click', closeInstructions);
+    closeButton.addEventListener('click', closeInstructions);
     modalReset.addEventListener('click', resetFromModal);
     seeBoardButton.addEventListener('click', letSeeBoard);
 }
