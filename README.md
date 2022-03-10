@@ -1,6 +1,6 @@
 # Tic Tac To
 
-**Pic with all the screens
+<img src='assets/images/readme/mockup.PNG'>
 
 [Link to live site.](https://sammartin92.github.io/tic-tac-to/)
 
