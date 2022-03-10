@@ -18,6 +18,16 @@ let vsComputerBtn, vsPlayerBtn;
 let tileValue;
 let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let board = ['', '', '', '', '', '', '', '', ''];
+let close= document.getElementById('close');
+let instructionsHTML=   `
+                        <ul>
+                        <li>Each turn, you get a number.</li>
+                        <li>Click on a square to place the number.</li>
+                        <li>Make a full row, column or diagonal add up to the score for that round.</li>
+                        <li>Play against the computer or another player.</li>
+                        <li>If all squares are filled with no winner, its a tie game.</li>
+                        </ul>
+                        `
 /*
 Indexes within the board
 [0] [1] [2]
@@ -64,6 +74,20 @@ function generateSadImage() {
     let imageDiv = document.createElement('div');
     imageDiv.innerHTML = `<img alt='A happy dog' src='${sadImages[randomInteger]}'>`;
     imageSpace.appendChild(imageDiv);
+}
+
+function showInstructions(){
+    modal.classList.remove('hide');
+    close.classList.remove('hide');
+    announcer.innerHTML = instructionsHTML;
+    modalReset.classList.add('hide');
+}
+
+function closeInstructions(){
+    modal.classList.add('hide');
+    close.classList.add('hide');
+    announcer.innerHTML= ``;
+    modalReset.classList.remove('hide');
 }
 
 function checkIfWon() {
@@ -132,12 +156,17 @@ function openPlayerGame() {
     <div>
         <div id='which-player'></div>
         <div id='scores'>
-            Player One <span id='player-one'></span>
-            Player Two <span id='player-two'></span>
+            Player One <span id='player-one' class='score-holder'></span>
+            Player Two <span id='player-two' class='score-holder'></span>
         </div>
         <button class='button' id='reset'>Reset</button>
         <div id='returner'>
-            <button class='button' id='return-button'>One Player</button>
+            <button class='button' id='return-button'>
+            One Player
+            </button>
+            <button class='button' id='instructions-button'>
+            Instructions
+            </button>
         </div>
     <div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
@@ -148,6 +177,7 @@ function openPlayerGame() {
     let playerTwoWinner = false;
     let whichPlayer = document.getElementById('which-player');
     let returnButton = document.getElementById('return-button');
+    let instructionsButton= document.getElementById('instructions-button');
     whichPlayer.innerHTML = `Player One's Turn`;
     let playerOneScoreDiv = document.getElementById('player-one');
     let playerTwoScoreDiv = document.getElementById('player-two');
@@ -235,6 +265,8 @@ function openPlayerGame() {
         generateTileValue();
     }
 
+
+
     function resetFromModal() {
         resetBoard();
         imageSpace.removeChild(imageSpace.firstChild);
@@ -249,6 +281,8 @@ function openPlayerGame() {
     }
 
     returnButton.addEventListener('click', returnToComputerGame);
+    instructionsButton.addEventListener('click', showInstructions);
+    close.addEventListener('click', closeInstructions);
     reset.addEventListener('click', resetBoard);
     modalReset.addEventListener('click', resetFromModal);
 }
@@ -258,13 +292,16 @@ function openComputerGame() {
     let scoreAndResetHTML = `
     </div>
         <div id='scores'>
-            Player <span id='player'></span>
-            Computer <span id='computer'></span>
+            Player <span id='player' class='score-holder'></span>
+            Computer <span id='computer' class='score-holder'></span>
         </div>
         <button class='button' id='reset'>Reset</button>
         <div id='returner'>
         <button class='button' id='return-button'>
            Two Player
+        </button>
+        <button class='button' id='instructions-button'>
+        Instructions
         </button>
     </div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
@@ -275,6 +312,7 @@ function openComputerGame() {
     let playerWinner = false;
     let computerWinner = false;
     let returnButton = document.getElementById('return-button');
+    let instructionsButton= document.getElementById('instructions-button');
     let playerScoreDiv = document.getElementById('player');
     let computerScoreDiv = document.getElementById('computer');
     // Init scores to 0
@@ -389,6 +427,8 @@ function openComputerGame() {
 
     returnButton.addEventListener('click', returnToPlayerGame);
     reset.addEventListener('click', resetBoard);
+    instructionsButton.addEventListener('click', showInstructions);
+    close.addEventListener('click', closeInstructions);
     modalReset.addEventListener('click', resetFromModal);
 }
 
