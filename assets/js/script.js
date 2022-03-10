@@ -2,6 +2,7 @@ const startButton = document.getElementById('start-button');
 const mainContainer = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
 const numbers = document.getElementById('numbers');
+const tiles = Array.from(document.getElementsByClassName('tile'));
 const modal = document.getElementById('modal-container');
 const imageSpace = document.getElementById('image-holder');
 const modalReset = document.getElementById('reset-modal');
@@ -171,7 +172,7 @@ function openPlayerGame() {
     let scoreAndResetHTML = `
     <div>
         <div id='which-player'></div>
-        <div id='scores'>
+        <div id='scores' class='larger-font'>
             Player One <span id='player-one' class='score-holder'></span>
             Player Two <span id='player-two' class='score-holder'></span>
         </div>
@@ -186,7 +187,6 @@ function openPlayerGame() {
         </div>
     <div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
-    let tiles = Array.from(document.getElementsByClassName('tile'));
     numbers.innerHTML = tileValues.join(' ');
     let isGameActive = true;
     let playerOneWinner = false;
@@ -257,7 +257,6 @@ function openPlayerGame() {
             tile.innerText = tileValue;
             numbers.innerHTML = tileValues.join(' ');
             board[index] = parseInt(tileValue);
-
             changePlayer();
             checkForWinner();
             generateTileValue();
@@ -307,7 +306,7 @@ function openComputerGame() {
     setTilesHTML();
     let scoreAndResetHTML = `
     </div>
-        <div id='scores'>
+        <div id='scores' class='larger-font'>
             Player <span id='player' class='score-holder'></span>
             Computer <span id='computer' class='score-holder'></span>
         </div>

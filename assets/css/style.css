@@ -14,6 +14,10 @@ body{
     align-items: center;
 }
 
+.larger-font{
+    font-size: larger;
+}
+
 #heading{
     text-align: center;
     padding:5px;
@@ -190,9 +194,8 @@ button:hover{
 
 .score-holder{
     border: 1px solid black;
-    padding: 2px;
+    padding: 4px;
 }
-
 
 #returner{
     margin-top: 20px;
