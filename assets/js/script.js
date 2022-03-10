@@ -376,7 +376,7 @@ function openComputerGame() {
             if (isGameActive) {
                 generateTileValue();
                 if (board.includes('') && !playerWinner) {
-                    setTimeout(computerAction, 500);
+                    setTimeout(computerAction, 250);
                 }
             }
         }

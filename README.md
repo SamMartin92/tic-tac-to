@@ -77,6 +77,7 @@ I have laid out the user experience process below:
 - The score counters below the board keep track of the users' and computers' scores after each round.
 - The reset button when pressed, will empty the board of all numbers, generate a new target value in the heading, a new 'Next move' number and refill the remaining numbers to be used until they are input onto the board.
 - The 'Two player' button below reset will open the two-player game.
+- The 'instructions' button will open a model which displays the rules of the game.
 
 <img src='assets/images/readme/features/one-player-mobile.jpg' height='400px' style='margin:20px'>  <img src='assets/images/readme/features/one-player-desktop.PNG' height= '350px' style='margin:20px'>  
 
@@ -88,6 +89,13 @@ I have laid out the user experience process below:
 
 <img src='assets/images/readme/features/two-player-mobile.jpg' height='400px' style='margin:20px'>  <img src='assets/images/readme/features/two-player-desktop.PNG' height= '350px' style='margin:20px'>  
 
+### See Instructions:
+- If a user clicks the see instructions button, the game rules as shown on the landing page are displayed.
+- With this implemented, it ensures that the user can navigate to all relevant sections of the site without having to refresh the page.
+- The 'X' in the top right hand side will close the instructions modal and recommence the game.
+
+<img src='assets/images/readme/features/see-instructions.PNG' height='400px'>
+
 #### End of round announcer:
 - The end of round announcer is a modal which pops up and covers the screen in the event of a round winner, or a tie game.
 - This announces the winner of the round, or a tie in the event that there is no winner.
@@ -96,6 +104,8 @@ I have laid out the user experience process below:
 - In the two-player game, a happy bunny will present if either player wins and a sad bunny presents in the event of a tie.
 - The bunny images are taken from the same collection credited below and match the existing colour scheme of the site.
 - Below the image, is a reset button which serves the same function as the reset button in the game modes.
+- If the user chooses the 'See Board' button, the announcer modal will disappear so that they can see the solution that added up to the target score before starting the next round. 
+- The game is not active at this point and clicking on empty tiles will do nothing. The user must click reset to clear the board and start a new round.
 
 <img src='assets/images/readme/features/modal-mobile.jpg' height='400px' style='margin:20px'> <img src='assets/images/readme/features/modal-tie-game.PNG' height='350px' style='margin:20px'>  <img src='assets/images/readme/features/modal-desktop.PNG' height= '350px' style='margin:20px'>  
 
@@ -135,6 +145,8 @@ I have laid out the user experience process below:
  - style.css was passed through https://jigsaw.w3.org/css-validator/ to ensure there were no errors.
 
  <img src='assets/images/readme/testing-and-bugs/css-validator.PNG'>
+
+ - The anchor tags in the footer were tested to ensure they open correctly and in a new tab.
 
  ### Bugs
 - There were numerous bugs that had to be fixed when building the site. I will lay out some examples of bugs I encountered here.
@@ -187,16 +199,20 @@ I have laid out the user experience process below:
           }
         }
 
- #### Unfixed bugs
-- There is a console error which relates to the the end of round announcer.
-  - If a user completes one full round in in one game mode and then switches from a one-player game to a two-player game or vice-versa and then uses the reset button on the end of round announcer modal, a console error appears.
+- There wass a console error which related to the the end of round announcer.
+  - If a user completed one full round in in one game mode and then switched from a one-player game to a two-player game or vice-versa and then used the reset button on the end of round announcer modal, a console error appeared.
   
   <img src='assets/images/readme/testing-and-bugs/console-error.PNG'>
 
-  - This is due to the fact the removeChild in the case above is used to remove the div containing the end of round image (happy or sad bunny).
-  - When the game is swicthed, a new div is placed where the div that is removed is and the original div is no longer the child.
-  - This, however, has no practical effect on the user. The images still generate as they should and this does not throw any errors in JSHint, so I am happy to leave it as is, as the code still works.
- ### Deployment
+  - This was due to the fact the a removeChild method in the case above wass used to remove the div containing the end of round image (happy or sad bunny).
+  - When the game wass swicthed, a new div wass placed where the div that was to be removed lay and the original div was no longer the child.
+  - To fix this, rather than using the removeChild method, I simply set the innerHTML div which held the images to '``'ìmageSpace.innerHTML=``'. This emptied the div and removed the console error.
+
+#### Unfixed bugs
+
+- As far as I am aware, no bugs on the site have been left unfixed.
+
+### Deployment
 
 #### This site was built in gitpod and deployed in github. Please see steps to deploy site below:
 
