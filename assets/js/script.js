@@ -269,7 +269,7 @@ function openPlayerGame() {
 
     function resetFromModal() {
         resetBoard();
-        imageSpace.removeChild(imageSpace.firstChild);
+        imageSpace.innerHTML=``;
     }
 
     function returnToComputerGame(){
@@ -414,7 +414,7 @@ function openComputerGame() {
 
     function resetFromModal() {
         resetBoard();
-        imageSpace.removeChild(imageSpace.firstChild);
+        imageSpace.innerHTML=``;
     }
 
     function returnToPlayerGame(){
