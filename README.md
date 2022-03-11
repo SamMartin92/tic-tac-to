@@ -5,7 +5,7 @@
 [Link to live site.](https://sammartin92.github.io/tic-tac-to/)
 
 * ## Objective
-My objective in this project is to build an interactive front-end site. It should respond to the users' actions, allowing them to enagage with the data and alter the way the site displays the information, allowing them to achieve the goals of the site and experience it in a straight-forward and enjoyable manner.
+My objective in this project is to build an interactive front-end site. It should respond to the users' actions, allowing them to engage with the data and alter the way the site displays the information, allowing them to achieve the goals of the site and experience it in a straight-forward and enjoyable manner.
 
 This encapsulates the brief as laid out Portfolio Project 2 Assessment Guide. This site has been built as my second portfolio project as part of my Diploma in Software Development with the [Code Institute](https://codeinstitute.net/ie/) . For my project, I have decided to build a math's based variation on the classic game tic tac toe, hence the title. The game is aimed at children from ages 4-8 who are learning and understanding addition for the first time.
 
@@ -23,17 +23,17 @@ I have laid out the user experience process below:
 - Build a game with very straight forward rules that will not cause a steep learning curve.
 - Design a site which intuitively allows the user to access the game without any difficulty.
  ### Structure
-- Present the game on one signle page with interactive design built with javascript.
+- Present the game on one single page with interactive design built with javascript.
 - Present the user with intuitive and consistent buttons to interact with and navigate through the site with ease.
 - Initiate the game within 2 clicks upon entering the site.
  ### Skeleton
 - Single site with different windows which pop up and replace one another on button clicks.
 - I then spoke with my mentor and decided how to lay out the site.
-- Before proceeding with any coding, I made some simple wireframes to act as a guide for the design of the site. The simplicity of the wireframes was something I wanted to reflect in the finished site to keep it single minded and non-distracting for yound users.
+- Before proceeding with any coding, I made some simple wireframes to act as a guide for the design of the site. The simplicity of the wireframes was something I wanted to reflect in the finished site to keep it single minded and non-distracting for young users.
 
 <img src='assets/images/readme/wireframes/wireframe-1.PNG'><img src='assets/images/readme/wireframes/wireframe-2.PNG'><img src='assets/images/readme/wireframes/wireframe-3.PNG'>
 
-- As is apprent, the wireframes were used as a guide and the idea of the skeleton of the site developed during its creation.
+- As is apparent, the wireframes were used as a guide and the idea of the skeleton of the site developed during its creation.
  ### Surface
 - Present a cute design for the site to appeal to child users.
 - Use cute images and playful font throughout the site.
@@ -117,26 +117,26 @@ I have laid out the user experience process below:
 - As mentioned below in the credits, I have made a tic-tac-toe game previously as some general practice while learning javascript. I would like to introduce that as an option in the game choice screen. In this instance, to keep the project single minded, I did not add that feature.
 - Of course, the ideal end-goal of this project would be to allow the two-player game be played on two different devices. However, that is beyond the scope of this project.
 
- ### Font & Color Scheme
-- The main font used for the theme of this site is 'Bubblegum Sans' from Google Fonts. This was chosen as it is a cute, playful font and appealling to a child user target audience.
+ ### Font & Colour Scheme
+- The main font used for the theme of this site is 'Bubblegum Sans' from Google Fonts. This was chosen as it is a cute, playful font and appealing to a child user target audience.
 - It is used in the heading, on all buttons and in each game element.
-- To contrast with 'Bubblegum Sans', 'Varela Round', also from Google Fonts, was chosen for the instrcutions on the landing page. As this may need to be comprehended by a parent or guardian for the child user, a more standard font was chosen.
-- With the concise nature of the rules, a straight forward font was also chosen to contrast against the playful font used elsehwere.
+- To contrast with 'Bubblegum Sans', 'Varela Round', also from Google Fonts, was chosen for the instructions on the landing page. As this may need to be comprehended by a parent or guardian for the child user, a more standard font was chosen.
+- With the concise nature of the rules, a straight forward font was also chosen to contrast against the playful font used elsewhere.
 - In that regard, a black font was chosen to contrast strongly against the pastel pink background.
-- The same was used with the remoaing numbers and 'Next Move' which display above the board. The goal being to contrast against the numbers being input into the board.
+- The same was used with the remaining numbers and 'Next Move' which display above the board. The goal being to contrast against the numbers being input into the board.
 - The basis of the colour scheme was taken from the below:
 
 <img src=assets/images/readme/features/colours.PNG>
 
-- A pastel colour cheme was chosen, to keep the site light and playful. These colours are often referred to as 'baby-pink', 'baby-blue' etc and I believe this theme is in keeping with the younger target audience of the game.
+- A pastel colour scheme was chosen, to keep the site light and playful. These colours are often referred to as 'baby-pink', 'baby-blue' etc and I believe this theme is in keeping with the younger target audience of the game.
 - In the end, as to not confuse the site background, the green shade and purple shade were excluded. Although, they show up in the images displayed at the end of a round.
 - Some of these colours are darkened, for example, a darker shade of blue was chosen for contrast. A darker shade of the pink and yellow are also used when hovering over a tile on the board or one of the buttons, respectively.
  ## Testing:
 - As this project revolved mainly around the use of javascript and how it was used to interact with the CSS and HTML elements of the page, Dev Tools was the main tool when testing throughout the project:
-    - The console was used to test the results of functions wihout having to run them over and over again before committing them into the code. This was especially necessary with rehards to the functions that randomly generated values and objects.
+    - The console was used to test the results of functions without having to run them over and over again before committing them into the code. This was especially necessary with regards to the functions that randomly generated values and objects.
     - The console also gave indications through error messages as to why the site was not responding as expected while code was being written.
  - I tested the site in edge, chrome, & firefox & mobile to ensure it was functional across the most prominent browsers, ensuring it acted as it did with dev tools after deployment.
- - I used lighthouse to generate reports for mobile and desktop. My main concern for this project was the accessability. Results shown below. Mobile and desktop reports respectively:
+ - I used lighthouse to generate reports for mobile and desktop. My main concern for this project was the accessibility. Results shown below. Mobile and desktop reports respectively:
 
  <img src='assets/images/readme/testing-and-bugs/mobile-lighthouse.PNG'>
 
@@ -169,7 +169,7 @@ I have laid out the user experience process below:
 
 <img src='assets/images/readme/testing-and-bugs/multiple-tiles-1.PNG' height='350px' style='margin:20px'> <img src='assets/images/readme/testing-and-bugs/multiple-tiles-1.PNG' height='350px' style='margin:20px'>
 
-  - The fix for this bug was to break up the function into two seperate functions, one to find the available moves and then one to select a tile from that array.
+  - The fix for this bug was to break up the function into two separate functions, one to find the available moves and then one to select a tile from that array.
   - ```javascript
       function getAvailableMoves() {
         tiles.forEach(function (tile) {
@@ -188,7 +188,7 @@ I have laid out the user experience process below:
         .
         .
         } 
- - Another bug related to choosing a random number each round. Originally I used two seperate functions, one function to generate the number and another to check whether that had been used already during that round.
+ - Another bug related to choosing a random number each round. Originally I used two separate functions, one function to generate the number and another to check whether that had been used already during that round.
    - As I was calling the second function in the first, while in theory it should not have caused an infinite loop, at times it would take too long to find a number not already used on the board and the console threw the *'Maximum call stack exceeded'* error and the site would crash.
    - The fix for this was to use one function, which was called within itself if a number which had already been used was generated. See below:
    - ```javascript
@@ -204,13 +204,13 @@ I have laid out the user experience process below:
           }
         }
 
-- There wass a console error which related to the the end of round announcer.
+- There was a console error which related to the end of round announcer.
   - If a user completed one full round in in one game mode and then switched from a one-player game to a two-player game or vice-versa and then used the reset button on the end of round announcer modal, a console error appeared.
   
   <img src='assets/images/readme/testing-and-bugs/console-error.PNG'>
 
   - This was due to the fact the a removeChild method in the case above wass used to remove the div containing the end of round image (happy or sad bunny).
-  - When the game wass swicthed, a new div wass placed where the div that was to be removed lay and the original div was no longer the child.
+  - When the game was switched, a new div was placed where the div that was to be removed lay and the original div was no longer the child.
   - To fix this, rather than using the removeChild method, I simply set the innerHTML div which held the images to '``'ìmageSpace.innerHTML=``'. This emptied the div and removed the console error.
 
 #### Unfixed bugs
@@ -222,7 +222,7 @@ I have laid out the user experience process below:
 #### This site was built in gitpod and deployed in github. Please see steps to deploy site below:
 
 - Navigate to 'Your Repositories' in your Github profile.
-- Ensure all commmits are pushed to 'main' branch.
+- Ensure all commits are pushed to 'main' branch.
 - Navigate to the Settings tab above your project files.
 - Navigate to 'Pages'.
 - Select branch 'main' and click Save. At this point github will begin to build the live site.
@@ -241,14 +241,14 @@ I have laid out the user experience process below:
  ### Technologies Used
 
 - This site was built in [Gitpod](https://gitpod.io/workspaces) and pushed to repository in [Github](https://github.com/) and was deployed to a live site from there.
-- Dev Tools was used continuously throughout the project. The console was used to build and debug functions. The styling of the page owes most of it's deveopment to dev tools allowing me to visualise the positioning and spacing of content on the site.
+- Dev Tools was used continuously throughout the project. The console was used to build and debug functions. The styling of the page owes most of it's development to dev tools allowing me to visualise the positioning and spacing of content on the site.
 - The font for the site was taken from [Google Fonts](https://fonts.google.com/).
 - The wireframes for this project were made with [Balsamiq](https://balsamiq.com/)
 - [TinyPNG](https://tinypng.com/) was used to compress the size of the images used in the live site and README.md and [RemoveBG](https://www.remove.bg/) was used to remove the background from the bunny images used when the round is finished.
 - [JSHint](https://jshint.com/), [W3C Markup Validation Service](https://validator.w3.org/) and [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) were used to validate the javascript, html & css used in this project respectively.
  
  ### Media
-- The happy and sad bunnies whihc pop up at the end of each round were taken from [Pexels](https://www.pexels.com/). There is no requiremnt fro attirbution in this case but the creator of these images can be found at this [link](https://pixabay.com/illustrations/rabbit-easter-pastel-bunny-hare-4120085/).
+- The happy and sad bunnies which pop up at the end of each round were taken from [Pexels](https://www.pexels.com/). There is no requirement for attribution in this case but the creator of these images can be found at this [link](https://pixabay.com/illustrations/rabbit-easter-pastel-bunny-hare-4120085/).
 - The favicon used was taken from [favicon.cc](https://www.favicon.cc/?action=icon&file_id=99873).
 
  ### Acknowledgements
