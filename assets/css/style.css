@@ -177,6 +177,9 @@ button:hover{
     caret-color: transparent;
 }
 
+.remove-click{
+    pointer-events: none;
+}
 .hover:hover{
     background-color: #e5b1c3;
 }
