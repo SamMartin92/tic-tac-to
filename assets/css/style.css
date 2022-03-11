@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Varela+Round&display=swap");
 
-*{
-    margin:0;
+* {
+    margin: 0;
     background-color: #ffc5d9;
 }
 
-body{
+body {
     padding: 1px 0 0 0;
     max-height: 100vh;
     display: flex;
@@ -14,45 +14,45 @@ body{
     align-items: center;
 }
 
-.larger-font{
+.larger-font {
     font-size: larger;
 }
 
-#heading{
+#heading {
     text-align: center;
-    padding:5px;
+    padding: 5px;
     margin-bottom: 10px;
     margin-top: 40px;
-    color: 	#87b3d6;
+    color: #87b3d6;
     font-size: 40px;
     width: 300px;
     background-color: #ffecb8;
     border-radius: 5px;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-#instructions h2{
+#instructions h2 {
     font-size: 2em;
-    font-family: 'Varela Round', sans-serif;
+    font-family: "Varela Round", sans-serif;
 }
 
-#target-value{
+#target-value {
     background-color: #ffecb8;
     font-size: 45px;
     text-decoration: underline;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-#displayer{
-    font-family: 'Bubblegum Sans', cursive;
+#displayer {
+    font-family: "Bubblegum Sans", cursive;
 }
-#numbers{
-    padding:10px;
+#numbers {
+    padding: 10px;
     max-width: 300px;
-    font-family: 'Bubblegum Sans', cursive;
-    }
+    font-family: "Bubblegum Sans", cursive;
+}
 
-#instructions{
+#instructions {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,18 +60,18 @@ body{
     margin: 0 auto;
 }
 
-ul{
+ul {
     margin-bottom: 20px;
     font-size: 25px;
-    font-family: 'Varela Round', sans-serif;
+    font-family: "Varela Round", sans-serif;
     max-width: 450px;
 }
 
-li{
+li {
     margin: 10px;
 }
 
-.button{
+.button {
     cursor: pointer;
     padding: 10px;
     margin: 2px;
@@ -79,21 +79,16 @@ li{
     border: none;
     font-size: 30px;
     background-color: #ffecb8;
-    color: 	#87b3d6;
-    font-family: 'Bubblegum Sans', cursive;
+    color: #87b3d6;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-button:hover{
+button:hover {
     background-color: #ffd86c;
     color: #87b3d6;
 }
 
-.hide{
-    display: none !important;
-}
-
-
-#modal-container{
+#modal-container {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -103,10 +98,10 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-.modal{
+.modal {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -117,103 +112,109 @@ button:hover{
     box-shadow: 2px 2px #e5b1c3;
 }
 
-#close-div{
+#close-div {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
-#close{
+#close {
     cursor: pointer;
 }
 
-#footer-links{
+#footer-links {
     padding: 10px;
     max-height: 40px;
     display: flex;
     list-style-type: none;
-    color: 	#87b3d6;
+    color: #87b3d6;
     margin-bottom: 0px;
 }
 
-#footer{
+#footer {
     margin-top: auto;
 }
 
-#footer-links li{
-    padding:20px;
+#footer-links li {
+    padding: 20px;
 }
 
-
-#announcer{
-    padding:20px 40px;
-    font-family: 'Bubblegum Sans', cursive;
+#announcer {
+    padding: 20px 40px;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-#image-holder{
-    padding:5px 5px 15px 5px;
+#image-holder {
+    padding: 5px 5px 15px 5px;
 }
 
-.container{
+.container {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
     max-width: 300px;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-.tile{
-    border: 2px solid 	#87b3d6;
+.tile {
+    border: 2px solid #87b3d6;
     min-width: 100px;
     min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    color:	#87b3d6;
+    color: #87b3d6;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: #ffecb8;
     cursor: pointer;
     caret-color: transparent;
 }
 
-.remove-click{
-    pointer-events: none;
-}
-.hover:hover{
+
+.hover:hover {
     background-color: #e5b1c3;
 }
 
-.below-container{
+.below-container {
     text-align: center;
-    padding :10px;
-    font-family: 'Bubblegum Sans', cursive;
+    padding: 10px;
+    font-family: "Bubblegum Sans", cursive;
 }
 
-#scores{
+#scores {
     display: flex;
     justify-content: space-between;
 }
 
-.score-holder{
+.score-holder {
     border: 1px solid black;
     padding: 4px;
 }
 
-#returner{
+#returner {
     margin-top: 20px;
 }
-#return-button, #instructions-button{
+#return-button,
+#instructions-button {
     text-decoration: underline;
 }
 
-
-#scores{
+#scores {
     padding: 10px;
 }
 
-.score-box{
-    padding:8px;
+.score-box {
+    padding: 8px;
     font-size: larger;
-    font-family: 'Bubblegum Sans', cursive;
+    font-family: "Bubblegum Sans", cursive;
+}
+
+/*classes which are added and removed in-game*/
+.remove-click {
+    pointer-events: none;
+}
+
+.hide {
+    display: none !important;
 }

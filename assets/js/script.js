@@ -1,3 +1,4 @@
+//sets global variables
 const startButton = document.getElementById('start-button');
 const mainContainer = document.getElementById('instructions');
 const game = document.getElementsByTagName('section')[0];
@@ -18,8 +19,8 @@ let reset, announcer;
 let target = document.getElementById('target-value');
 let vsComputerBtn, vsPlayerBtn;
 let tileValue;
-let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-let board = ['', '', '', '', '', '', '', '', ''];
+let tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9]; //array of values to be input into game
+let board = ['', '', '', '', '', '', '', '', '']; //updates as moves are made by player or game
 let instructionsHTML = `
                         <ul>
                         <li>Each turn, you get a number.</li>
@@ -35,6 +36,7 @@ Indexes within the board
 [3] [4] [5]
 [6] [7] [8]
 */
+
 const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -45,12 +47,13 @@ const winningConditions = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-//https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+
 //generates random number
+//credit: https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
 function generateRandomInteger(min, max) {
     return Math.floor(min + Math.random() * (max + 1 - min));
 }
-
+//randomly generates value for the next move
 function generateTileValue() {
     const randomIndex = Math.floor(Math.random() * tileValues.length);
     tileValue = tileValues[randomIndex];
@@ -62,50 +65,50 @@ function generateTileValue() {
         generateTileValue();
     }
 }
-
+//sets happy image into end of round announcer
 function generateHappyImage() {
     let randomInteger = generateRandomInteger(0, 3);
     let imageDiv = document.createElement('div');
     imageDiv.innerHTML = `<img alt='A happy dog' src='${happyImages[randomInteger]}'>`;
     imageSpace.appendChild(imageDiv);
 }
-
+//sets happy image into end of round announcer
 function generateSadImage() {
     let randomInteger = generateRandomInteger(0, 3);
     let imageDiv = document.createElement('div');
     imageDiv.innerHTML = `<img alt='A happy dog' src='${sadImages[randomInteger]}'>`;
     imageSpace.appendChild(imageDiv);
 }
-
+//disables display of modal
 function hideModal() {
     modal.classList.add('hide');
     closeButton.classList.add('hide');
 }
-
+//enables display of modal
 function showModal() {
     modal.classList.remove('hide');
     closeButton.classList.remove('hide');
 }
-
+//hides modal without restarting game 
 function letSeeBoard() {
     modal.classList.add('hide');
     imageSpace.innerHTML = ``;
 }
-
+//displays modal with rules of game
 function showInstructions() {
     showModal();
     seeBoardButton.classList.add('hide');
     announcer.innerHTML = instructionsHTML;
     modalReset.classList.add('hide');
 }
-
+//closes modal
 function closeInstructions() {
     hideModal();
     announcer.innerHTML = ``;
     seeBoardButton.classList.remove('hide');
     modalReset.classList.remove('hide');
 }
-
+//checks if winning conditions of game have been met
 function checkIfWon() {
     for (let i = 0; i < 8; i++) {
         const winCondition = winningConditions[i];
@@ -121,15 +124,22 @@ function checkIfWon() {
     }
     return false;
 }
-
+//checks if value can be placed in specific tile
 function isValidAction(tile) {
     if (tile.innerText !== '') {
         return false;
     }
     return true;
 }
+//adds event listener to start button
 startButton.addEventListener('click', onStartButtonClick);
 
+// opens game choice screen and sets up buttons
+function onStartButtonClick() {
+    setGameChoicesHTML();
+    initEventListeners();
+}
+//displays game choice buttons
 function setGameChoicesHTML() {
     let gameChoiceHTML = `
     <div class='game-choice'>
@@ -138,14 +148,14 @@ function setGameChoicesHTML() {
     </div>  `;
     mainContainer.innerHTML = gameChoiceHTML;
 }
-
+//adds event listeners to game choice buttons
 function initEventListeners() {
     let vsComputerBtn = document.getElementById('vs-computer');
     let vsPlayerBtn = document.getElementById('vs-player');
     vsComputerBtn.addEventListener('click', openComputerGame);
     vsPlayerBtn.addEventListener('click', openPlayerGame);
 }
-
+//sets up the playing board
 function setTilesHTML() {
     let tilesHTML = '';
     for (let i = 0; i < 9; i++) {
@@ -153,13 +163,13 @@ function setTilesHTML() {
     }
     mainContainer.innerHTML = tilesHTML;
     mainContainer.removeAttribute('id');
-    mainContainer.classList.add('container'); 
+    mainContainer.classList.add('container');
 }
-
+//sets up div containing scores and buttons
 function setScoreAndResetHTML(htmlToSet) {
     let scoreAndResetDiv = document.createElement('div');
     scoreAndResetDiv.innerHTML = htmlToSet;
-    scoreAndResetDiv.classList.add('below-container'); 
+    scoreAndResetDiv.classList.add('below-container');
     game.appendChild(scoreAndResetDiv);
     reset = document.getElementById('reset');
     announcer = document.getElementById('announcer');
@@ -185,8 +195,8 @@ function openPlayerGame() {
         </div>
     <div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
-    numbers.innerHTML = tileValues.join(' ');
-    let tiles = Array.from(document.getElementsByClassName('tile'));
+    numbers.innerHTML = tileValues.join(' '); //displays unused values above board
+    let tiles = Array.from(document.getElementsByClassName('tile')); //generates array of tiles on the board
     let isGameActive = true;
     let playerOneWinner = false;
     let playerTwoWinner = false;
@@ -201,14 +211,15 @@ function openPlayerGame() {
     playerTwoScoreDiv.innerHTML = 0;
     let playerOneScore = parseInt(playerOneScoreDiv.innerHTML);
     let playerTwoScore = parseInt(playerTwoScoreDiv.innerHTML);
-    target.innerHTML = generateRandomInteger(12, 20);
+    target.innerHTML = generateRandomInteger(12, 20); //sets target score for first round
     let playerOneTurn = true;
+    generateTileValue(); //sets random value for first move
 
-    generateTileValue();
+    //adds event listeners to each tile on playing board
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => onTwoPlayerGameTileClick(tile, index));
     });
-
+    //sets actions for if winning conditions have been met
     function checkForWinner() {
         const hasWon = checkIfWon();
         if (hasWon && playerOneTurn) {
@@ -239,8 +250,7 @@ function openPlayerGame() {
             generateSadImage();
         }
     }
-
-
+    //swtches value of playerOneTurn boolean
     function changePlayer() {
         if (playerOneTurn) {
             playerOneTurn = false;
@@ -250,7 +260,7 @@ function openPlayerGame() {
             whichPlayer.innerHTML = `Player One's Turn`;
         }
     }
-
+    //inserts value into tile on playing board, updates board array and sets up next move
     function onTwoPlayerGameTileClick(tile, index) {
         if (isValidAction(tile) && isGameActive) {
             tile.innerText = tileValue;
@@ -261,7 +271,7 @@ function openPlayerGame() {
             generateTileValue();
         }
     }
-
+    //sets up new round
     function resetBoard() {
         board = ['', '', '', '', '', '', '', '', ''];
         tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -277,12 +287,12 @@ function openPlayerGame() {
         target.innerHTML = generateRandomInteger(12, 20);
         generateTileValue();
     }
-
+    //sets new round from modal reset button
     function resetFromModal() {
         resetBoard();
         imageSpace.innerHTML = ``;
     }
-
+    //switches to one-player game 
     function returnToComputerGame() {
         let belowContainerDiv = document.querySelector('.below-container');
         belowContainerDiv.remove();
@@ -290,7 +300,7 @@ function openPlayerGame() {
         tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         openComputerGame();
     }
-
+    //assigning event listeners to in-game buttons
     returnButton.addEventListener('click', returnToComputerGame);
     instructionsButton.addEventListener('click', showInstructions);
     closeButton.addEventListener('click', closeInstructions);
@@ -317,9 +327,9 @@ function openComputerGame() {
         </button>
     </div>`;
     setScoreAndResetHTML(scoreAndResetHTML);
-    let tiles = Array.from(document.getElementsByClassName('tile'));
-    numbers.innerHTML = tileValues.join(' ');
-    let availableMoves = [];
+    let tiles = Array.from(document.getElementsByClassName('tile')); //generates array of tiles on the board
+    numbers.innerHTML = tileValues.join(' '); //displays unused values above board
+    let availableMoves = []; //empty array to be filled with potential moves for 'computer'
     let isGameActive = true;
     let playerWinner = false;
     let computerWinner = false;
@@ -332,19 +342,19 @@ function openComputerGame() {
     computerScoreDiv.innerHTML = 0;
     let playerScore = parseInt(playerScoreDiv.innerHTML);
     let computerScore = parseInt(computerScoreDiv.innerHTML);
-    target.innerHTML = generateRandomInteger(12, 20);
-    generateTileValue();
+    target.innerHTML = generateRandomInteger(12, 20); //sets target score for first round
+    generateTileValue(); //sets random value for first move
+    //adds event listeners to each tile on playing board
     tiles.forEach(function (tile, index) {
         tile.addEventListener('click', () => onSinglePlayerGameTileClick(tile, index));
     });
-
-    function toggleclick(){
-        tiles.forEach(function (tile){
+    //adds and removes class which prevents adding value to tiles during the computer's turn
+    function toggleclick() {
+        tiles.forEach(function (tile) {
             tile.classList.toggle('remove-click');
         });
     }
-    
-
+    //sets actions in case that winning conditions met after player's turn
     function checkPlayerWinner() {
         playerWinner = checkIfWon();
         if (playerWinner) {
@@ -361,7 +371,7 @@ function openComputerGame() {
             isGameActive = false;
         }
     }
-
+    //sets actions in case that winning conditons met after computer's turn
     function checkComputerWinner() {
         computerWinner = checkIfWon();
         if (computerWinner) {
@@ -372,7 +382,7 @@ function openComputerGame() {
             isGameActive = false;
         }
     }
-
+    //adds value to tile on player's click and initiates computer's turn if game has not been won or drawn
     function onSinglePlayerGameTileClick(tile, index) {
         if (isValidAction(tile) && isGameActive) {
             tile.innerText = tileValue;
@@ -389,6 +399,7 @@ function openComputerGame() {
         }
     }
     //gets available moves for computer
+    //credit: //https://codepen.io/lando464/pen/BPGEKO
     function getAvailableMoves() {
         tiles.forEach(function (tile) {
             if (tile.innerText == '') {
@@ -396,13 +407,13 @@ function openComputerGame() {
             }
             return availableMoves;
         });
-    } //https://codepen.io/lando464/pen/BPGEKO
+    }
     //resets array of available moves
     function emptyAvailableMoves() {
         availableMoves.splice(0, availableMoves.length);
         return availableMoves;
     }
-    //computer takes a random move
+    //computer takes a random move and conditions for next move are set
     function computerAction() {
         getAvailableMoves();
         let randomMove = Math.floor(Math.random() * availableMoves.length);
@@ -415,7 +426,7 @@ function openComputerGame() {
         emptyAvailableMoves();
         generateTileValue();
     }
-
+    //sets up new round
     function resetBoard() {
         board = ['', '', '', '', '', '', '', '', ''];
         tileValues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -432,12 +443,12 @@ function openComputerGame() {
         target.innerHTML = generateRandomInteger(12, 20);
         generateTileValue();
     }
-
+    //sets new round from modal reset button
     function resetFromModal() {
         resetBoard();
         imageSpace.innerHTML = ``;
     }
-
+    //switches to two-player game
     function returnToPlayerGame() {
         let belowContainerDiv = document.querySelector('.below-container');
         board = ['', '', '', '', '', '', '', '', ''];
@@ -445,16 +456,11 @@ function openComputerGame() {
         belowContainerDiv.remove();
         openPlayerGame();
     }
-
+    //assigning event listeners to in-game buttons
     returnButton.addEventListener('click', returnToPlayerGame);
     reset.addEventListener('click', resetBoard);
     instructionsButton.addEventListener('click', showInstructions);
     closeButton.addEventListener('click', closeInstructions);
     modalReset.addEventListener('click', resetFromModal);
     seeBoardButton.addEventListener('click', letSeeBoard);
-}
-
-function onStartButtonClick() {
-    setGameChoicesHTML();
-    initEventListeners();
 }

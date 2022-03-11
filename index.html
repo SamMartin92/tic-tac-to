@@ -1,63 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Online maths based tic-tac-toe variation" />
+        <meta name="keywords" content="maths, tic-tac-toe, games, kids-games, cute, fun" />
+        <meta name="author" content="Sam Martin" />
+        <title>Tic Tac To</title>
+        <link rel="icon" type="image/png" href="assets/images/icon/favicon.png" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Online maths based tic-tac-toe variation" />
-    <meta name="keywords" content="maths, tic-tac-toe, games, kids-games, cute, fun" />
-    <meta name="author" content="Sam Martin" />
-    <title>Tic Tac To</title>
-    <link rel="icon" type="image/png" href="assets/images/icon/favicon.png" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    
-</head>
-
-<body>
-    <h1 id="heading">Tic Tac To <span id="target-value"></span></h1>
-    <div id="displayer" class="larger-font"></div>
-    <div id="numbers" class="larger-font"></div>
-    <!--this is for the numbers-->
-
-    <section>
-        <div id="instructions">
-            <h2>How to Tic Tac To:</h2>
-            <ul>
-                <li>Each turn, you get a number.</li>
-                <li>Click on a square to place the number.</li>
-                <li>Make a full row, column or diagonal add up to the score for that round.</li>
-                <li>Play against the computer or another player.</li>
-                <li>If all squares are filled with no winner, its a tie game.</li>
+    <body>
+        <h1 id="heading">Tic Tac To <span id="target-value"></span></h1>
+        <div id="displayer" class="larger-font"></div>
+        <div id="numbers" class="larger-font"></div>
+        <section>
+            <div id="instructions">
+                <h2>How to Tic Tac To:</h2>
+                <ul>
+                    <li>Each turn, you get a number.</li>
+                    <li>Click on a square to place the number.</li>
+                    <li>Make a full row, column or diagonal add up to the score for that round.</li>
+                    <li>Play against the computer or another player.</li>
+                    <li>If all squares are filled with no winner, its a tie game.</li>
+                </ul>
+                <button class="button" id="start-button">Start</button>
+            </div>
+        </section>
+        <div class="hide" id="modal-container">
+            <div class="modal">
+                <div id="close-div"><span id="close" class="hide">X</span></div>
+                <span id="announcer"></span>
+                <div id="image-holder"></div>
+                <button class="button" id="reset-modal">Reset</button>
+                <button class="button" id="see-board">See Board</button>
+            </div>
+        </div>
+        <footer>
+            <ul id="footer-links">
+                <li>
+                    <a href="https://github.com/SamMartin92" target="_blank" rel="noopener" aria-label="Visit my Github page (opens in new tab)"><i class="fab fa-github"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/samuelmartin92/" target="_blank" rel="noopener" aria-label="Visit my Linkedin page (opens in new tab)"><i class="fab fa-linkedin"></i></a>
+                </li>
             </ul>
-            <button class="button" id="start-button">Start</button>
-        </div>
-    </section>
-
-    <div class="hide" id="modal-container">
-        <div class="modal">
-            <div id="close-div"><span id='close' class="hide">X</span></div>
-            <span id="announcer"></span>
-            <div id="image-holder"></div>
-            <button class="button" id="reset-modal">Reset</button>
-            <button class="button" id="see-board">See Board</button>
-        </div>
-    </div>
-
-    <footer>
-        <ul id="footer-links">
-            <li>
-                <a href="https://github.com/SamMartin92" target="_blank" rel="noopener"
-                aria-label="Visit my Github page (opens in new tab)"><i class="fab fa-github"></i></a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/samuelmartin92/" target="_blank" rel="noopener"
-                aria-label="Visit my Linkedin page (opens in new tab)"><i class="fab fa-linkedin"></i></a>
-            </li>
-        </ul>
-    </footer>
-    <script src="assets/js/script.js" defer></script>
-    <script src="https://kit.fontawesome.com/6720c109a5.js" crossorigin="anonymous"></script>
-</body>
-
+        </footer>
+        <!--links js code-->
+        <script src="assets/js/script.js" defer></script>
+        <!--font awsome script-->
+        <script src="https://kit.fontawesome.com/6720c109a5.js" crossorigin="anonymous"></script>
+    </body>
 </html>
