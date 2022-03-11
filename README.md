@@ -115,6 +115,7 @@ I have laid out the user experience process below:
 
  ### Features to implement:
 - As mentioned below in the credits, I have made a tic-tac-toe game previously as some general practice while learning javascript. I would like to introduce that as an option in the game choice screen. In this instance, to keep the project single minded, I did not add that feature.
+- Of course, the ideal end-goal of this project would be to allow the two-player game be played on two different devices. However, that is beyond the scope of this project.
 
  ### Font & Color Scheme
 - The main font used for the theme of this site is 'Bubblegum Sans' from Google Fonts. This was chosen as it is a cute, playful font and appealling to a child user target audience.
