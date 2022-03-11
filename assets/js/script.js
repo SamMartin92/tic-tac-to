@@ -340,7 +340,7 @@ function openComputerGame() {
 
     function toggleclick(){
         tiles.forEach(function (tile){
-            tile.classList.toggle('remove-click')
+            tile.classList.toggle('remove-click');
         });
     }
     
